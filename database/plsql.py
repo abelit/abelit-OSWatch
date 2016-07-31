@@ -76,7 +76,8 @@ class DBFunction(object):
 class DBProcedure(object):
     pass
 
-class 
+class DBPackage(object):
+    pass
 
 
 if __name__ == '__main__':
