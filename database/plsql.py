@@ -19,7 +19,7 @@ from core import logwrite
 from core import texthandler
 from database import db
 
-class Trigger( object ):
+class DBTrigger( object ):
     """docstring for Trigger"""       
     def create_datasync_trigger( self, trigger_name, tablesrc, tabledst, ownersrc, ownerdst ):
         column_pk = db.Tables().query_column(tablesrc, ownersrc)['column_pk']
@@ -73,6 +73,12 @@ class Trigger( object ):
 class DBFunction(object):
     pass
 
+class DBProcedure(object):
+    pass
+
+class 
+
+
 if __name__ == '__main__':
-    Trigger().create_datasync_trigger( 'syncdata', 'A_BM_XZQH', 'A_BM_XZQH', 'GZGS_GY', 'GZGS_HZ' )
+    DBTrigger().create_datasync_trigger( 'syncdata', 'A_BM_XZQH', 'A_BM_XZQH', 'GZGS_GY', 'GZGS_HZ' )
 
