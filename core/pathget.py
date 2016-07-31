@@ -21,11 +21,11 @@ class PathGet(object):
     
     def get_fullpath(self):
         separator = os.sep
-        str = os.getcwd()
-        str = str.split(separator)
-        while len(str) > 0:
-            fpath = separator.join(str)+separator+self.file
-            leng = len(str)
+        path = os.getcwd()
+        path = path.split(separator)
+        while len(path) > 0:
+            fpath = separator.join(path)+separator+self.file
+            leng = len(path)
             if os.path.exists(fpath):
                 return os.path.dirname(fpath)
             str.remove(str[leng-1])

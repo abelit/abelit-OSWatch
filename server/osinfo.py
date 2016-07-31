@@ -9,6 +9,7 @@
 
 #Import modules
 import os
+from cffi.backend_ctypes import long
 #Get cpu info
 def cpu_stat():  
     cpu = []  
@@ -123,4 +124,7 @@ def disk_stat():
     hd['capacity(MB)'] = disk.f_bsize * disk.f_blocks/1024/1024    
     hd['used(MB)'] = disk.f_bsize * disk.f_bfree/1024/1024
     hd['used_pct(%)'] = round(hd['used(MB)'] / hd['capacity(MB)']*100)  
-    return hd    
+    return hd   
+
+if __name__ == '__main__':
+    print(disk_stat())

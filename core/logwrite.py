@@ -13,7 +13,6 @@
 '''
 
 import os
-import logging
 import logging.config
 import logging.handlers
 import configparser
@@ -50,7 +49,7 @@ class LogWrite:
             # Get logger name
             logger=logging.getLogger(self.loglevel)
             # Call lambda function to do switch statement
-            result = {
+            {
                 'debugLogger': lambda: logger.debug(self.logmessage),
                 'infoLogger': lambda: logger.info(self.logmessage),
                 'warnLogger': lambda: logger.warn(self.logmessage),
@@ -75,7 +74,7 @@ class LogWrite:
             console.setFormatter(formatter)
             logging.getLogger('').addHandler(console)
 
-            result = {
+            {
                 'debugLogger': lambda:logging.debug(self.logmessage),
                 'infoLogger': lambda:logging.info(self.logmessage),
                 'warnLogger': lambda: logger.warn(self.logmessage),

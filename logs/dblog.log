@@ -147,3 +147,8 @@
 
 2016-07-31 19:39:43,205 logwrite.py[line:57] ERROR Failed to connect to Database ORA-12170: TNS:Connect timeout occurred
 
+2016-07-31 21:58:19,454 logwrite.py[line:55] INFO This is a info message
+2016-07-31 21:58:40,918 logwrite.py[line:55] INFO This is a info message
+2016-07-31 21:58:44,093 logwrite.py[line:55] INFO This is a info message
+2016-07-31 21:58:45,009 logwrite.py[line:55] INFO This is a info message
+2016-07-31 21:59:32,380 logwrite.py[line:54] INFO This is a info message

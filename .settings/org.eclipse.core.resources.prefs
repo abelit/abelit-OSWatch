@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//config/dbconfig.py=utf-8
+encoding//core/email.py=cp936
 encoding//core/logwrite.py=utf-8
 encoding//core/pathget.py=utf-8
 encoding//database/datasync.py=utf-8
@@ -7,3 +8,4 @@ encoding//database/db.py=utf-8
 encoding//database/dbconnect.py=utf-8
 encoding//database/logminer.py=utf-8
 encoding//database/plsql.py=utf-8
+encoding//server/osinfo.py=utf-8
