@@ -28,7 +28,7 @@ class PathGet(object):
             leng = len(path)
             if os.path.exists(fpath):
                 return os.path.dirname(fpath)
-            str.remove(str[leng-1])
+            path.remove(path[leng-1])
    
 
 if __name__ == '__main__':

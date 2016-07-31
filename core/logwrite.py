@@ -35,8 +35,8 @@ class LogWrite:
         #Change logconf
         cf=configparser.ConfigParser()
         cf.read(self.logconf)
-        cf.set("handler_fileHandler","args",'('+"'"+self.logpath+"'"+','+"'"+'a'+"'"+')')
-        cf.set("handler_rotatingHandler","args",'('+"'"+self.logpath+"'"+','+"'"+'a'+"'"+',10*1024*1024, 5'+')')
+        cf.set("handler_fileHandler","args",'(r'+"'"+self.logpath+"'"+','+"'"+'a'+"'"+')')
+        cf.set("handler_rotatingHandler","args",'(r'+"'"+self.logpath+"'"+','+"'"+'a'+"'"+',10*1024*1024, 5'+')')
         fp=open(self.logconf,'w')
         cf.write(fp)
         fp.close()

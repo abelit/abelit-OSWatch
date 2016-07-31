@@ -152,3 +152,6 @@
 2016-07-31 21:58:44,093 logwrite.py[line:55] INFO This is a info message
 2016-07-31 21:58:45,009 logwrite.py[line:55] INFO This is a info message
 2016-07-31 21:59:32,380 logwrite.py[line:54] INFO This is a info message
+2016-07-31 15:10:39,343 logwrite.py[line:54] INFO This is a info message
+2016-07-31 15:13:46,472 logwrite.py[line:55] INFO This is a info message
+2016-07-31 15:16:15,029 logwrite.py[line:54] INFO This is a info message
