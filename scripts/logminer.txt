@@ -1,0 +1,35 @@
+--创建logminer目录、创建数据字典
+create directory logminer as '/u01/app/oracle/logminer';
+alter system set utl_file_dir='/u01/app/oracle/logminer' scope=spfile;
+
+--开启LogMiner日志补充模式
+alter database add supplemental log data;
+
+--创建logminer用户
+CREATE USER LOGMINER IDENTIFIED BY LOGMINER;
+GRANT CONNECT, RESOURCE,DBA TO LOGMINER;
+
+--以LOGMINER用户（DBA权限）登录，生成字典文件
+EXECUTE dbms_logmnr_d.build(dictionary_filename => 'dictionary.ora', dictionary_location =>'/u01/app/oracle/logminer');
+
+--加入解析日志文件
+--1.archive:
+--从v$log视图中找出日志文件的序号
+select sequence#, FIRST_CHANGE#, NEXT_CHANGE#,name from v$archived_log order by sequence# desc;
+--2.online log:
+--需要确认当前处于联机状态的日志文件
+SELECT group#, sequence#, status, first_change#, first_time FROM V$log ORDER BY first_change#;
+
+BEGIN
+dbms_logmnr.add_logfile(logfilename=>'+DATA/gzgszxk/onlinelog/group_1.393.913367227',options=>dbms_logmnr.NEW);
+END;
+/
+
+--启动LogMiner进行分析
+EXECUTE dbms_logmnr.start_logmnr(dictfilename=>'/u01/app/oracle/logminer/dictionary.ora');
+
+--查询相关操作日志
+SELECT sql_redo, sql_undo, seg_owner
+FROM v$logmnr_contents
+WHERE seg_name='A_BM_XZQH'
+AND seg_owner='GZGS_GY';

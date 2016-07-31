@@ -1,0 +1,102 @@
+\documentclass[cs4size,a4paper,fancyhdr,fntef,hyperref]{ctexrep}
+\usepackage{ctex}
+\usepackage{graphicx}
+%%extra
+\usepackage{times}%设置缺省字体为新罗马字体
+\usepackage{mathptmx}%数学公式字体
+%%中文数字
+\usepackage{CJKnumb}
+\usepackage[square,sort&compress,numbers,super]{natbib}
+\usepackage{multirow}
+\usepackage{flafter}
+\usepackage{makecell} %%调整表格行间距
+\usepackage{titlesec,titletoc}
+
+
+
+
+%%版面样式
+\voffset -1.54 true cm
+\topmargin 0 true cm
+\headheight 1  true cm
+\headsep 0.5  true cm
+\textheight 23.7 true cm
+\textwidth 15.5 true cm
+\footskip 1 true cm
+\oddsidemargin 0.46 true cm
+
+%%章节样式
+\titleclass{\chapter}{straight}
+\titleformat{\chapter}{\heiti\zihao{3}}{\CJKnumber{\thechapter}}{0.5em}{}
+\titlespacing{\chapter} {0pt}{30pt}{10pt}
+\titleformat{\section}{\heiti\zihao{4}}{\,\thesection\,}{1em}{}
+\setcounter{tocdepth}{2}
+
+%%%%%%%%%%%%%页眉页脚%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{贵阳市信息中心}
+\chead{}
+\rhead{2016年系统数据库运维巡检报告第3期}
+\lfoot{贵州维讯信息技术有限公司\\贵阳市观山湖区绿地铂金大厦12层}
+\cfoot{\thepage}
+\rfoot{ http://www.vision-it.com.cn\\总机：0851-5835058/68/78}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+%%%
+\ctexset{contentsname= 目录}
+%%%
+\begin{document}
+    \title{vs_pagehead\\二〇一六年度系统数据库运维服务\\vs_month巡检报告}
+    \author{贵州维讯信息技术有限公司}
+    \maketitle
+    
+\tableofcontents
+
+    \thispagestyle{empty}
+    \setcounter{page}{0}
+    \clearpage
+    
+\chapter{技术服务信息}\thispagestyle{fancy}
+    \arrayrulewidth=1pt
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{ |l|l|l|l|l|l|l|}
+        \hline
+        \textbf{项目名称}  &  \multicolumn{6}{l|}{贵阳市信息中心系统运维项目}\\ 
+        \hline
+        \multirow{4}{*}{\textbf{联系人信息}}&\textbf{姓名}&朱次平&\textbf{部门}&软件开发科&\textbf{职务}&工程师\\
+        \cline{2-7}
+        &\textbf{电话}&&\textbf{手机}&13984305211&\textbf{邮箱}&13075144@qq.com\\
+        \cline{2-7}
+        &\textbf{地址}&\multicolumn{3}{l|}{ \tabincell{c}{贵阳市金阳行政中心二期\\D区综合办公大楼306室}}&\textbf{邮编}&550001\\
+        \hline
+       \textbf{ 服务类型}&\multicolumn{6}{l|}{系统数据库运维服务}\\
+        \hline
+        \textbf{巡检地点}&\multicolumn{2}{l|}{贵阳市信息中心}&\multicolumn{2}{c|}{\textbf{报表时间范围}}&\multicolumn{2}{l|}{2015-3-1 至2015-3-30}\\
+        \hline
+        \textbf{巡检人}&\multicolumn{2}{l|}{吴江}&\multicolumn{2}{c|}{\textbf{巡检日期}}&\multicolumn{2}{l|}{2015-3-30}\\
+        \hline
+    \end{tabular}
+
+
+\chapter{系统架构}\thispagestyle{fancy}
+    \section{当前网络拓扑}
+        \begin{figure}[!ht]
+            \includegraphics{../images/topology}
+            \caption{当前网络拓扑图} 
+        \end{figure}
+    \section{巡检服务器对象列表}
+    \section{巡检数据库对象列表}
+\chapter{巡检情况概览}\thispagestyle{fancy}
+    \section{核心系统设备}
+    \section{数据库}
+    \section{机房环境巡检}
+    \section{优化建议}
+\chapter{本月故障实时响应}\thispagestyle{fancy}
+\chapter{巡检设备运行数据及分析记录}\thispagestyle{fancy}
+\chapter{数据库巡检数据及分析}\thispagestyle{fancy}
+
+\end{document}
+
