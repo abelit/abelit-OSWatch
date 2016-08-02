@@ -3,7 +3,8 @@
 @project: __oswatch__
 @modules: database.dbconnect
 @description:
-@created: Jul 31, 2016
+    
+@created:Aug 2, 2016
 
 @author: abelit
 @email: ychenid@live.com
@@ -33,14 +34,13 @@ class DBConnect(object):
         try:
             if username == 'sys':
                 conn = cx_Oracle.connect(username, password, host + ':' + str(port) + '/' + instance, cx_Oracle.SYSDBA)
-                logwrite.LogWrite(logmessage="Connect oracle"+conn.version+"successfully",loglevel='infoLogger')
             else:
                 conn = cx_Oracle.connect(username, password, host + ':' + str(port) + '/' + instance)
         except cx_Oracle.DatabaseError as cx_msg:
             logwrite.LogWrite(logmessage="Failed to connect to Database " + str(cx_msg), loglevel='errorLogger').write_log()
             sys.exit()
         else:
-            logwrite.LogWrite(logmessage="Connect oracle"+conn.version+"successfully",loglevel='infoLogger')
+            logwrite.LogWrite(logmessage="Connect oracle "+ conn.version+" successfully",loglevel='infoLogger').write_log()
             return conn
                 
     # Connect to mysql

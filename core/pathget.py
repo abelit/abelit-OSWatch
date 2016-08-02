@@ -1,16 +1,17 @@
 # encoding: utf-8
 '''
-Created on Jul 31, 2016
-@modules: database.pathget
+@project: __oswatch__
+@modules: core.pathget
+@description:
+    
+@created:Aug 2, 2016
 
 @author: abelit
 @email: ychenid@live.com
-@description:
 
 @licence: GPL
 
 '''
-
 import os
 
 class PathGet(object):

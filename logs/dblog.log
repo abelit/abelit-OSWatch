@@ -1,157 +1,41 @@
-2016-07-31 03:50:25,214 logwrite.py[line:48] INFO This is a info message
-2016-07-31 03:53:09,251 logwrite.py[line:48] INFO This is a info message
-2016-07-31 08:00:21,398 logwrite.py[line:50] INFO This is a info message
-2016-07-31 08:07:01,310 logwrite.py[line:50] INFO This is a info message
-2016-07-31 08:07:07,475 logwrite.py[line:48] INFO This is a info message
-2016-07-31 08:09:51,889 logwrite.py[line:48] INFO This is a info message
-2016-07-31 08:13:05,374 logwrite.py[line:48] INFO This is a info message
-2016-07-31 08:14:37,776 logwrite.py[line:48] INFO This is a info message
-2016-07-31 09:47:47,498 logwrite.py[line:52] INFO This is a info message
-2016-07-31 09:47:50,985 logwrite.py[line:52] INFO This is a info message
-2016-07-31 09:50:54,170 logwrite.py[line:52] INFO This is a info message
-2016-07-31 09:51:43,490 logwrite.py[line:52] INFO This is a info message
-2016-07-31 09:51:48,293 logwrite.py[line:52] INFO This is a info message
-2016-07-31 10:42:56,365 logwrite.py[line:53] INFO This is a info message
-2016-07-31 10:43:04,387 logwrite.py[line:53] INFO This is a info message
-2016-07-31 10:44:19,780 logwrite.py[line:52] INFO This is a info message
-2016-07-31 10:45:07,589 logwrite.py[line:50] INFO This is a info message
-2016-07-31 11:01:50,706 logwrite.py[line:52] INFO This is a info message
-2016-07-31 11:27:17,857 logwrite.py[line:55] INFO This is a info message
-2016-07-31 11:28:28,296 logwrite.py[line:55] INFO This is a info message
-2016-07-31 11:52:33,384 logwrite.py[line:55] INFO This is a info message
-2016-07-31 11:52:44,098 logwrite.py[line:55] INFO This is a info message
-2016-07-31 11:55:09,060 logwrite.py[line:57] ERROR Failed to connect to Database as sysdba.ORA-12170: TNS:Connect timeout occurred
+2016-08-02 15:23:25,132 logwrite.py[line:56] ERROR Failed to connect to Database ORA-01017: invalid username/password; logon denied
 
-2016-07-31 11:55:58,442 logwrite.py[line:57] ERROR Failed to connect to Database as sysdba.ORA-12170: TNS:Connect timeout occurred
+2016-08-02 15:24:30,562 logwrite.py[line:56] ERROR Failed to connect to Database ORA-01017: invalid username/password; logon denied
 
-2016-07-31 11:57:52,667 logwrite.py[line:57] ERROR Failed to connect to Database ORA-12170: TNS:Connect timeout occurred
-
-2016-07-31 12:00:54,929 logwrite.py[line:57] ERROR Failed to connect to Database ORA-12170: TNS:Connect timeout occurred
-
-2016-07-31 12:16:49,297 logwrite.py[line:55] INFO This is a info message
-2016-07-31 12:27:44,701 logwrite.py[line:55] INFO This is a info message
-2016-07-31 13:20:19,997 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 13:28:59,375 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 13:29:09,760 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 13:29:28,570 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 13:29:28,575 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 13:46:22,039 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 13:46:35,647 logwrite.py[line:55] INFO exp user/password table=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 13:50:36,582 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 14:05:17,377 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 14:07:33,201 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 14:08:36,847 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 14:08:38,478 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 14:08:53,412 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 14:11:49,235 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 14:34:37,899 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 14:37:21,207 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 14:37:54,948 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 14:48:01,759 logwrite.py[line:55] INFO expdp user/password full=y directory=BACKUP dumpfile=gzgszxk_expdp_20160731_%U.dmp logfile=gzgszxk_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 14:50:22,905 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 14:51:13,770 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 14:53:16,995 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 14:53:43,629 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 14:55:51,620 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 14:57:33,889 logwrite.py[line:56] WARNING Please asign the type to backup data.Like byuser|bytable|bytablespace|byfull.
-2016-07-31 14:57:46,140 logwrite.py[line:55] INFO This is a info message
-2016-07-31 14:58:05,806 logwrite.py[line:56] WARNING Please asign the type to backup data.Like byuser|bytable|bytablespace|byfull.
-2016-07-31 15:00:26,170 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:02:12,849 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:02:19,596 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:02:35,238 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:03:20,508 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:03:51,745 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:05:16,145 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:07:00,708 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:10:57,091 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 15:14:59,319 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:15:07,986 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:16:08,138 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:38:29,820 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:38:34,375 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:41:02,289 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:44:52,749 logwrite.py[line:55] INFO impdp user/password remap_schemma=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=GZGS_GY_impdp_20160731_%U.dmp logfile=GZGS_GY_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:45:44,972 logwrite.py[line:55] INFO impdp user/password full=y directory=BACKUP dumpfile=gzgszxk_impdp_20160731_%U.dmp logfile=gzgszxk_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:48:21,391 logwrite.py[line:55] INFO impdp user/password tables=GZGS_GY.A_BM_XZQH remap_schemma=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=A_BM_XZQH_impdp_20160731_%U.dmp logfile=A_BM_XZQH_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:49:48,626 logwrite.py[line:55] INFO impdp user/password tables=GZGS_GY remap_schemma=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=A_BM_XZQH_impdp_20160731_%U.dmp logfile=A_BM_XZQH_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:50:34,225 logwrite.py[line:55] INFO impdp user/password remap_schemma=GZGS_GY:GZGS_GY remap_tablespace=A_BM_XZQH:A_BM_XZQH directory=BACKUP dumpfile=A_BM_XZQH_impdp_20160731.dmp logfile=A_BM_XZQH_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:51:00,853 logwrite.py[line:55] INFO impdp user/password remap_schemma=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=GZGS_GY_impdp_20160731_%U.dmp logfile=GZGS_GY_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:51:16,062 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 15:51:30,685 logwrite.py[line:55] INFO expdp user/password tables=A_BM_XZQH directory=BACKUP dumpfile=A_BM_XZQH_expdp_20160731_%U.dmp logfile=A_BM_XZQH_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 16:09:14,080 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 16:09:30,130 logwrite.py[line:55] INFO expdp user/password tablespaces=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_20160731_%U.dmp logfile=GZGS_GY_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 16:09:42,633 logwrite.py[line:55] INFO expdp user/password tables=A_BM_XZQH directory=BACKUP dumpfile=A_BM_XZQH_expdp_20160731_%U.dmp logfile=A_BM_XZQH_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 16:13:46,325 logwrite.py[line:55] INFO expdp user/password tables=GZGS_GY.A_BM_XZQH directory=BACKUP dumpfile=GZGS_GY.A_BM_XZQH_expdp_20160731_%U.dmp logfile=GZGS_GY.A_BM_XZQH_expdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 16:16:13,854 logwrite.py[line:55] INFO exp user/password table=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_20160731.log 
-2016-07-31 16:18:51,299 logwrite.py[line:55] INFO exp user/password table=GZGS_GY.A_BM_XZQH file=/u01/app/oracle/backup/GZGS_GY.A_BM_XZQH_exp_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY.A_BM_XZQH_exp_20160731.log 
-2016-07-31 16:19:29,202 logwrite.py[line:55] INFO exp user/password full=y file=/u01/app/oracle/backup/gzgszxk_exp_20160731.dmp log=/u01/app/oracle/backup/gzgszxk_exp_20160731.log 
-2016-07-31 16:20:35,668 logwrite.py[line:55] INFO exp user/password full=y file=/u01/app/oracle/backup/gzgszxk_full_exp_20160731.dmp log=/u01/app/oracle/backup/gzgszxk_full_exp_20160731.log 
-2016-07-31 16:25:05,240 logwrite.py[line:55] INFO exp user/password full=y file=/u01/app/oracle/backup/gzgszxk_exp_byfull_20160731.dmp log=/u01/app/oracle/backup/gzgszxk_exp_byfull_20160731.log 
-2016-07-31 16:26:50,122 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_byuser_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_byuser_20160731.log 
-2016-07-31 16:27:13,208 logwrite.py[line:55] INFO exp user/password table=GZGS_GY.A_BM_XZQH file=/u01/app/oracle/backup/GZGS_GY.A_BM_XZQH_exp_bytable_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY.A_BM_XZQH_exp_bytable_20160731.log 
-2016-07-31 16:27:45,977 logwrite.py[line:55] INFO expdp user/password tables=GZGS_GY.A_BM_XZQH directory=BACKUP dumpfile=GZGS_GY.A_BM_XZQH_expdp_bytable_20160731_%U.dmp logfile=GZGS_GY.A_BM_XZQH_expdp_bytable_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 16:28:06,817 logwrite.py[line:55] INFO expdp user/password tablespaces=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_bytablespace_20160731_%U.dmp logfile=GZGS_GY_expdp_bytablespace_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 17:46:01,840 logwrite.py[line:55] INFO expdp user/password tablespaces=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_bytablespace_20160731_%U.dmp logfile=GZGS_GY_expdp_bytablespace_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 17:51:59,931 logwrite.py[line:55] INFO expdp user/password tablespaces=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_bytablespace_20160731_%U.dmp logfile=GZGS_GY_expdp_bytablespace_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 17:55:56,467 logwrite.py[line:55] INFO expdp user/password tablespaces=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_bytablespace_20160731_%U.dmp logfile=GZGS_GY_expdp_bytablespace_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 17:56:58,926 logwrite.py[line:55] INFO expdp user/password tablespaces=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_bytablespace_20160731_%U.dmp logfile=GZGS_GY_expdp_bytablespace_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 17:59:09,726 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_byuser_20160731_%U.dmp logfile=GZGS_GY_expdp_byuser_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 17:59:30,102 logwrite.py[line:55] INFO expdp user/password tables=GZGS_GY.A_BM_XZQH directory=BACKUP dumpfile=GZGS_GY.A_BM_XZQH_expdp_bytable_20160731_%U.dmp logfile=GZGS_GY.A_BM_XZQH_expdp_bytable_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 17:59:54,666 logwrite.py[line:55] INFO expdp user/password full=y directory=BACKUP dumpfile=gzgszxk_expdp_byfull_20160731_%U.dmp logfile=gzgszxk_expdp_byfull_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:00:50,077 logwrite.py[line:55] INFO exp user/password full=y file=/u01/app/oracle/backup/gzgszxk_exp_byfull_20160731.dmp log=/u01/app/oracle/backup/gzgszxk_exp_byfull_20160731.log 
-2016-07-31 18:01:02,206 logwrite.py[line:55] INFO exp user/password table=GZGS_GY.A_BM_XZQH file=/u01/app/oracle/backup/GZGS_GY.A_BM_XZQH_exp_bytable_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY.A_BM_XZQH_exp_bytable_20160731.log 
-2016-07-31 18:01:37,546 logwrite.py[line:55] INFO imp user/password fromuser=GZGS_GY touser=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_imp_byuser_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_imp_byuser_20160731.log 
-2016-07-31 18:02:28,275 logwrite.py[line:55] INFO imp user/password fromuser=GZGS_GY touser=GZGS_GY table=A_BM_XZQH file=/u01/app/oracle/backup/A_BM_XZQH_imp_bytable_20160731.dmp log=/u01/app/oracle/backup/A_BM_XZQH_imp_bytable_20160731.log 
-2016-07-31 18:03:34,613 logwrite.py[line:55] INFO imp user/password full=y file=/u01/app/oracle/backup/gzgszxk_imp_20160731.dmp log=/u01/app/oracle/backup/gzgszxk_imp_20160731.log ignore=y
-2016-07-31 18:03:54,883 logwrite.py[line:55] INFO impdp user/password full=y directory=BACKUP dumpfile=gzgszxk_impdp_20160731_%U.dmp logfile=gzgszxk_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:04:08,117 logwrite.py[line:55] INFO impdp user/password tables=GZGS_GY remap_schemma=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=A_BM_XZQH_impdp_20160731_%U.dmp logfile=A_BM_XZQH_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:04:54,774 logwrite.py[line:55] INFO impdp user/password remap_schemma=GZGS_GY:GZGS_GY remap_tablespace=A_BM_XZQH:A_BM_XZQH directory=BACKUP dumpfile=A_BM_XZQH_impdp_20160731.dmp logfile=A_BM_XZQH_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:07:22,800 logwrite.py[line:55] INFO impdp user/password remap_schemma=GZGS_GY:GZGS_GY remap_tablespace=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=GZGS_GY_impdp_20160731.dmp logfile=GZGS_GY_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:08:12,161 logwrite.py[line:55] INFO impdp user/password tables=GZGS_GY remap_schemma=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=A_BM_XZQH_impdp_20160731_%U.dmp logfile=A_BM_XZQH_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:09:37,157 logwrite.py[line:55] INFO impdp user/password tables=A_BM_XZQH remap_schemma=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=A_BM_XZQH_impdp_20160731_%U.dmp logfile=A_BM_XZQH_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:13:35,915 logwrite.py[line:55] INFO impdp user/password tables=A_BM_XZQH remap_schemma=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=A_BM_XZQH_impdp_20160731_%U.dmp logfile=A_BM_XZQH_impdp_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:13:47,932 logwrite.py[line:55] INFO imp user/password fromuser=GZGS_GY touser=GZGS_GY table=A_BM_XZQH file=/u01/app/oracle/backup/A_BM_XZQH_exp_imp_bytable_20160731.dmp log=/u01/app/oracle/backup/A_BM_XZQH_exp_imp_bytable_20160731.log 
-2016-07-31 18:19:19,013 logwrite.py[line:55] INFO imp user/password fromuser=GZGS_GY touser=GZGS_GY table=A_BM_XZQH file=/u01/app/oracle/backup/A_BM_XZQH_bytable_20160731.dmp log=/u01/app/oracle/backup/A_BM_XZQH_imp_bytable_20160731.log 
-2016-07-31 18:19:55,175 logwrite.py[line:55] INFO imp user/password fromuser=GZGS_GY touser=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_byuser_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_imp_byuser_20160731.log 
-2016-07-31 18:20:10,754 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_imp_byuser_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_byuser_20160731.log 
-2016-07-31 18:20:25,761 logwrite.py[line:55] INFO imp user/password fromuser=GZGS_GY touser=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_byuser_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_imp_byuser_20160731.log 
-2016-07-31 18:20:33,643 logwrite.py[line:55] INFO imp user/password fromuser=GZGS_GY touser=GZGS_GY table=A_BM_XZQH file=/u01/app/oracle/backup/A_BM_XZQH_bytable_20160731.dmp log=/u01/app/oracle/backup/A_BM_XZQH_imp_bytable_20160731.log 
-2016-07-31 18:24:32,142 logwrite.py[line:55] INFO imp user/password fromuser=GZGS_GY touser=GZGS_GY table=A_BM_XZQH file=/u01/app/oracle/backup/GZGS_GY.A_BM_XZQH_bytable_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY.A_BM_XZQH_imp_bytable_20160731.log 
-2016-07-31 18:29:17,384 logwrite.py[line:55] INFO exp user/password table=GZGS_GY.A_BM_XZQH file=/u01/app/oracle/backup/GZGS_GY.A_BM_XZQH_exp_imp_bytable_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY.A_BM_XZQH_exp_bytable_20160731.log 
-2016-07-31 18:29:41,030 logwrite.py[line:55] INFO imp user/password fromuser=GZGS_GY touser=GZGS_GY table=A_BM_XZQH file=/u01/app/oracle/backup/GZGS_GY.A_BM_XZQH_exp_imp_bytable_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY.A_BM_XZQH_imp_bytable_20160731.log 
-2016-07-31 18:30:46,135 logwrite.py[line:55] INFO imp user/password fromuser=GZGS_GY touser=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_imp_byuser_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_imp_byuser_20160731.log 
-2016-07-31 18:30:50,866 logwrite.py[line:55] INFO exp user/password owner=GZGS_GY file=/u01/app/oracle/backup/GZGS_GY_exp_imp_byuser_20160731.dmp log=/u01/app/oracle/backup/GZGS_GY_exp_byuser_20160731.log 
-2016-07-31 18:31:23,511 logwrite.py[line:55] INFO exp user/password full=y file=/u01/app/oracle/backup/gzgszxk_exp_imp_byfull_20160731.dmp log=/u01/app/oracle/backup/gzgszxk_exp_byfull_20160731.log 
-2016-07-31 18:31:29,698 logwrite.py[line:55] INFO imp user/password full=y file=/u01/app/oracle/backup/gzgszxk_exp_imp_byfull_20160731.dmp log=/u01/app/oracle/backup/gzgszxk_imp_byfull_20160731.log ignore=y
-2016-07-31 18:37:30,117 logwrite.py[line:55] INFO impdp user/password full=y directory=BACKUP dumpfile=gzgszxk_expdp_impdp_byfull_20160731_%U.dmp logfile=gzgszxk_impdp_byfull_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:37:36,077 logwrite.py[line:55] INFO expdp user/password full=y directory=BACKUP dumpfile=gzgszxk_expdp_impdp_byfull_20160731_%U.dmp logfile=gzgszxk_expdp_byfull_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:38:21,005 logwrite.py[line:55] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_impdp_byuser_20160731_%U.dmp logfile=GZGS_GY_expdp_byuser_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:38:26,604 logwrite.py[line:55] INFO impdp user/password remap_schemma=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_impdp_byuser_20160731_%U.dmp logfile=GZGS_GY_impdp_byuser_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:39:03,815 logwrite.py[line:55] INFO impdp user/password tables=A_BM_XZQH remap_schemma=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=A_BM_XZQH_expdp_impdp_bytable_20160731_%U.dmp logfile=A_BM_XZQH_impdp_bytable_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:39:12,768 logwrite.py[line:55] INFO expdp user/password tables=GZGS_GY.A_BM_XZQH directory=BACKUP dumpfile=GZGS_GY.A_BM_XZQH_expdp_impdp_bytable_20160731_%U.dmp logfile=GZGS_GY.A_BM_XZQH_expdp_bytable_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:39:16,324 logwrite.py[line:55] INFO expdp user/password tables=GZGS_GY.A_BM_XZQH directory=BACKUP dumpfile=GZGS_GY.A_BM_XZQH_expdp_impdp_bytable_20160731_%U.dmp logfile=GZGS_GY.A_BM_XZQH_expdp_bytable_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:41:33,978 logwrite.py[line:55] INFO expdp user/password tables=GZGS_GY.A_BM_XZQH directory=BACKUP dumpfile=GZGS_GY.A_BM_XZQH_expdp_impdp_bytable_20160731_%U.dmp logfile=GZGS_GY.A_BM_XZQH_expdp_bytable_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:41:43,422 logwrite.py[line:55] INFO impdp user/password tables=A_BM_XZQH remap_schemma=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=GZGS_GY.A_BM_XZQH_expdp_impdp_bytable_20160731_%U.dmp logfile=GZGS_GY.A_BM_XZQH_impdp_bytable_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:42:26,091 logwrite.py[line:55] INFO impdp user/password remap_schemma=GZGS_GY:GZGS_GY remap_tablespace=GZGS_GY:GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_impdp_bytablespace_20160731.dmp logfile=GZGS_GYimpdp_bytablespace_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:42:33,068 logwrite.py[line:55] INFO expdp user/password tablespaces=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_impdp_bytablespace_20160731_%U.dmp logfile=GZGS_GY_expdp_bytablespace_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:45:32,457 logwrite.py[line:55] INFO expdp user/password tablespaces=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_impdp_bytablespace_20160731_%U.dmp logfile=GZGS_GY_expdp_bytablespace_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:45:42,563 logwrite.py[line:55] INFO expdp user/password tablespaces=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_impdp_bytablespace_20160731_%U.dmp logfile=GZGS_GY_expdp_bytablespace_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:56:45,486 logwrite.py[line:55] INFO expdp user/password tablespaces=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_impdp_bytablespace_20160731_%U.dmp logfile=GZGS_GY_expdp_bytablespace_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 18:58:11,115 logwrite.py[line:55] INFO expdp user/password tablespaces=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_impdp_bytablespace_20160731_%U.dmp logfile=GZGS_GY_expdp_bytablespace_20160731.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
-2016-07-31 19:03:23,489 logwrite.py[line:57] ERROR Failed to connect to Database ORA-12170: TNS:Connect timeout occurred
-
-2016-07-31 19:19:44,596 logwrite.py[line:57] ERROR Failed to connect to Database ORA-12170: TNS:Connect timeout occurred
-
-2016-07-31 19:37:58,020 logwrite.py[line:57] ERROR Failed to connect to Database ORA-12170: TNS:Connect timeout occurred
-
-2016-07-31 19:39:43,205 logwrite.py[line:57] ERROR Failed to connect to Database ORA-12170: TNS:Connect timeout occurred
-
-2016-07-31 21:58:19,454 logwrite.py[line:55] INFO This is a info message
-2016-07-31 21:58:40,918 logwrite.py[line:55] INFO This is a info message
-2016-07-31 21:58:44,093 logwrite.py[line:55] INFO This is a info message
-2016-07-31 21:58:45,009 logwrite.py[line:55] INFO This is a info message
-2016-07-31 21:59:32,380 logwrite.py[line:54] INFO This is a info message
-2016-07-31 15:10:39,343 logwrite.py[line:54] INFO This is a info message
-2016-07-31 15:13:46,472 logwrite.py[line:55] INFO This is a info message
-2016-07-31 15:16:15,029 logwrite.py[line:54] INFO This is a info message
+2016-08-02 15:25:22,885 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-08-02 15:26:12,538 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-08-02 15:27:27,273 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-08-02 15:30:54,242 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:31:00,854 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:31:06,639 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:31:06,796 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:31:06,949 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:31:07,109 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:31:07,240 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:31:07,405 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:31:07,527 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:31:07,682 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:31:07,811 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:31:07,855 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-08-02 15:32:03,854 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:32:04,005 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:32:04,120 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:32:04,292 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:32:04,431 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:32:04,593 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:32:04,719 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:32:04,975 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:32:05,097 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:32:05,126 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-08-02 15:33:37,588 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:33:37,735 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:33:37,850 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:33:38,005 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:33:38,127 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:33:38,289 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:33:38,412 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:33:38,554 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:33:38,676 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:33:38,705 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-08-02 15:37:09,146 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-02 15:43:31,550 logwrite.py[line:54] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_impdp_byuser_20160802_%U.dmp logfile=GZGS_GY_expdp_byuser_20160802.log  parallel=16 cluster=n REUSE_DUMPFILES=Y

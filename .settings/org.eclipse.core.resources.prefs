@@ -8,4 +8,5 @@ encoding//database/db.py=utf-8
 encoding//database/dbconnect.py=utf-8
 encoding//database/logminer.py=utf-8
 encoding//database/plsql.py=utf-8
+encoding//gzgs/gzgsinfo.py=utf-8
 encoding//server/osinfo.py=utf-8
