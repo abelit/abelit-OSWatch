@@ -39,3 +39,15 @@
 2016-08-02 15:33:38,705 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
 2016-08-02 15:37:09,146 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
 2016-08-02 15:43:31,550 logwrite.py[line:54] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_impdp_byuser_20160802_%U.dmp logfile=GZGS_GY_expdp_byuser_20160802.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
+2016-08-03 16:17:27,071 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-04 10:57:43,471 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-04 11:03:53,793 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-04 11:03:53,955 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-04 11:03:54,093 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-04 11:03:54,247 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-04 11:03:54,349 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-04 11:03:54,497 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-04 11:03:54,594 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-04 11:03:54,747 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-04 11:03:54,851 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-08-04 11:03:54,871 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH

@@ -20,7 +20,7 @@ import subprocess
 # 本机
 # p = subprocess.Popen('uptime', stdout=subprocess.PIPE)   
 # 远程服务器，需要配置youserver.com自动登录（通过密钥文件自动登录）
-p = subprocess.Popen(['ssh', 'root@172.28.1.222', 'pwd'], stdout=subprocess.PIPE)
+p = subprocess.Popen(['ssh', 'root@172.28.1.222', 'uname -a'], stdout=subprocess.PIPE)
 info = p.stdout.readline()
 print(str(info))
 

@@ -1,11 +1,16 @@
-#!/usr/bin/python
-#coding:utf-8
+# encoding: utf-8
+'''
+@project: __oswatch__
+@modules: server.osinfo
+@description:
+@created: Aug 4, 2016
 
-#Function:Auto getting information about os
-#Description:
-#Author:Abelit
-#Email:ychenid@live.com
-#Date:2016-04-11
+@author: abelit
+@email: ychenid@live.com
+
+@licence: GPL
+
+'''
 
 #Import modules
 import os
