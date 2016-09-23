@@ -51,3 +51,514 @@
 2016-08-04 11:03:54,747 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
 2016-08-04 11:03:54,851 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
 2016-08-04 11:03:54,871 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-09-19 11:30:01,054 logwrite.py[line:56] ERROR Failed to connect to Database ORA-12154: TNS:could not resolve the connect identifier specified
+
+2016-09-19 11:31:54,659 logwrite.py[line:56] ERROR Failed to connect to Database ORA-12504: TNS:listener was not given the SERVICE_NAME in CONNECT_DATA
+
+2016-09-19 11:33:22,563 logwrite.py[line:56] ERROR Failed to connect to Database ORA-01017: invalid username/password; logon denied
+
+2016-09-19 11:33:50,800 logwrite.py[line:56] ERROR Failed to connect to Database ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+
+2016-09-19 11:33:53,577 logwrite.py[line:56] ERROR Failed to connect to Database ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+
+2016-09-19 11:34:25,296 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:35:24,761 logwrite.py[line:54] INFO expdp user/password schemas=GZGS_GY directory=BACKUP dumpfile=GZGS_GY_expdp_impdp_byuser_20160919_%U.dmp logfile=GZGS_GY_expdp_byuser_20160919.log  parallel=16 cluster=n REUSE_DUMPFILES=Y
+2016-09-19 11:36:19,360 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:36:19,961 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:36:20,150 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:36:20,291 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:36:20,411 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:36:20,611 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:36:20,727 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:36:20,867 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:36:20,997 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:36:21,058 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-09-19 11:45:53,823 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:45:53,986 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:45:54,140 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:45:54,286 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:45:54,411 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:45:54,555 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:45:54,705 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:45:55,145 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:45:55,698 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-19 11:45:55,850 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-09-20 11:33:07,442 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 11:33:10,382 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 11:33:48,005 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 11:34:12,769 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:37:38,282 logwrite.py[line:54] INFO This is a info message
+2016-09-20 14:37:49,349 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:37:53,205 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:39:41,257 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:46:49,823 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:46:50,023 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:46:50,165 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:46:50,321 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:46:50,532 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:46:50,715 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:46:51,008 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:46:51,195 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:46:51,329 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:46:51,378 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-09-20 14:54:03,880 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:54:04,022 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:54:04,138 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:54:04,290 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:54:04,396 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:54:04,548 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:54:04,653 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:54:04,817 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:54:04,933 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 14:54:04,962 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-09-20 15:00:10,085 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 15:00:10,260 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 15:00:10,394 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 15:00:10,532 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 15:00:10,646 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 15:00:10,787 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 15:00:10,918 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 15:00:11,058 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 15:00:11,214 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully
+2016-09-20 15:00:11,240 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-09-21 10:51:55,920 logwrite.py[line:56] ERROR Could not connect to database: ORA-01031: insufficient privileges
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 10:52:48,253 logwrite.py[line:56] ERROR Could not connect to database: ORA-01031: insufficient privileges
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 10:55:16,871 logwrite.py[line:56] ERROR Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 10:56:02,197 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 10:56:47,422 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 11:17:23,927 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 11:28:25,784 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 11:28:25,971 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 11:28:26,133 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 11:28:26,324 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 11:28:26,450 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 11:28:26,742 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 11:28:26,934 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 11:28:27,088 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 11:28:27,325 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 11:28:27,352 logwrite.py[line:55] WARNING No data need to syncthonize between GZGS_GY.A_BM_XZQH and GZGS_HZ.A_BM_XZQH
+2016-09-21 14:40:03,840 logwrite.py[line:56] ERROR Could not connect to database: ORA-01017: invalid username/password; logon denied
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 14:40:11,097 logwrite.py[line:56] ERROR Could not connect to database: ORA-01017: invalid username/password; logon denied
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 14:40:13,951 logwrite.py[line:56] ERROR Could not connect to database: ORA-01017: invalid username/password; logon denied
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 14:40:15,315 logwrite.py[line:56] ERROR Could not connect to database: ORA-01017: invalid username/password; logon denied
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 14:40:39,937 logwrite.py[line:56] ERROR Could not connect to database: ORA-01017: invalid username/password; logon denied
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 14:40:58,280 logwrite.py[line:56] ERROR Could not connect to database: ORA-01017: invalid username/password; logon denied
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 14:40:59,780 logwrite.py[line:56] ERROR Could not connect to database: ORA-01017: invalid username/password; logon denied
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 14:41:00,884 logwrite.py[line:56] ERROR Could not connect to database: ORA-01017: invalid username/password; logon denied
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 14:41:01,896 logwrite.py[line:56] ERROR Could not connect to database: ORA-01017: invalid username/password; logon denied
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 14:42:00,895 logwrite.py[line:56] ERROR Could not connect to database: ORA-01017: invalid username/password; logon denied
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 14:42:01,937 logwrite.py[line:56] ERROR Could not connect to database: ORA-01017: invalid username/password; logon denied
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 14:42:46,923 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 14:43:51,604 logwrite.py[line:56] ERROR Could not connect to database: ORA-01017: invalid username/password; logon denied
+, dsn: (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.28.1.222)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=gzgszxk))) 
+2016-09-21 14:51:11,936 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 14:59:26,921 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:00:13,347 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:01:03,763 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:02:35,911 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:02:48,322 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:03:08,290 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:04:44,320 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:05:04,043 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:09:50,879 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:10:28,718 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:11:50,499 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:14,469 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:20,982 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:32,351 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:32,580 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:33,832 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:33,910 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:33,972 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:36,101 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:36,101 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:36,183 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:36,183 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:36,890 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:37,418 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:13:38,105 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 15:55:08,521 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 16:05:49,901 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 16:09:30,021 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 16:12:57,252 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 16:13:56,016 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-21 16:14:10,253 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:13:14,108 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:29:01,445 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:29:28,929 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:30:19,334 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:32:11,868 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:32:13,091 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:32:35,776 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:34:14,842 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:35:29,533 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:36:02,550 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:36:02,679 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:38:15,994 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:38:28,356 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:39:11,281 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:39:40,449 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:40:29,174 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:41:50,314 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:43:59,421 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:44:28,930 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:44:37,111 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:45:14,271 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:45:56,991 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:55:09,888 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:55:10,052 logwrite.py[line:54] INFO Disconnect to oracle 11.2.0.3.0 from 
+2016-09-22 09:56:00,112 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 09:56:00,151 logwrite.py[line:54] INFO Disconnect from oracle 11.2.0.3.0
+2016-09-22 10:02:34,007 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:16:58,113 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:17:06,739 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:17:07,379 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:17:50,486 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:18:48,378 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:20:28,896 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:21:45,991 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:21:46,030 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:22:02,254 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:22:13,191 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:24:13,098 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:24:13,136 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:28:21,344 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:28:21,562 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:28:21,700 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:28:21,714 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:28:21,735 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:28:21,770 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:28:21,955 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:28:22,026 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:28:25,941 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:28:25,988 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:36:20,833 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:36:20,934 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:38:39,076 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:38:39,120 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:38:57,836 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:38:58,473 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:41:58,882 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:41:58,931 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:42:09,933 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:42:09,966 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:51:01,668 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:51:01,683 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:51:30,049 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:51:30,112 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:51:46,928 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:51:46,949 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:53:16,441 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:53:16,450 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:53:16,533 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:53:25,881 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:53:25,886 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:53:25,904 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:54:10,759 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:54:10,767 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:54:10,770 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:54:10,782 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:54:10,786 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:54:10,790 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:54:10,796 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:54:10,833 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:54:10,842 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:54:10,845 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:54:10,862 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:54:10,909 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:54:28,418 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:54:28,428 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:54:28,466 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:54:46,935 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:54:46,942 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:54:47,045 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:55:39,913 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:55:39,920 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:55:39,944 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:55:40,676 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:55:40,683 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:55:40,715 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:56:24,652 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:56:24,663 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:56:24,697 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:56:28,279 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:56:28,319 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:56:28,358 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:56:49,489 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:56:49,527 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:57:13,333 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:57:13,355 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:58:33,787 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:58:33,826 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:59:12,645 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:59:12,687 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 10:59:56,917 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 10:59:56,925 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 10:59:56,957 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:00:10,210 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:00:10,333 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:00:36,959 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:00:37,160 logwrite.py[line:56] ERROR ORA-00920: invalid relational operator
+
+2016-09-22 11:00:37,204 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:00:48,197 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:00:48,401 logwrite.py[line:56] ERROR ORA-00911: invalid character
+
+2016-09-22 11:00:50,580 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:00:51,717 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:00:51,757 logwrite.py[line:56] ERROR ORA-00911: invalid character
+
+2016-09-22 11:00:52,127 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:01:44,030 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:01:44,036 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:01:45,278 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:01:45,286 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:01:45,367 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:01:50,023 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:01:50,031 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:01:50,096 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:02:11,576 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:02:11,582 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:02:11,652 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:02:21,488 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:02:21,493 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:02:21,533 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:02:33,799 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:02:33,806 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:02:33,838 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:02:52,921 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:02:53,045 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:05:08,670 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:05:08,677 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:05:08,847 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:05:08,976 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:05:08,983 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:05:09,003 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:05:17,306 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:05:17,314 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:05:17,372 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:05:46,441 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:05:46,449 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:05:46,487 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:05:59,541 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:05:59,547 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:05:59,791 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:06:07,339 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:06:07,345 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:06:07,383 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:09:30,120 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:09:30,370 logwrite.py[line:56] ERROR ORA-01008: not all variables bound
+
+2016-09-22 11:09:30,401 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:11:36,974 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:11:37,090 logwrite.py[line:56] ERROR ORA-01008: not all variables bound
+
+2016-09-22 11:11:37,223 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:11:55,972 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:11:55,991 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:12:18,195 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:12:18,202 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:12:18,424 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:12:22,405 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:12:22,416 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:12:22,610 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:12:45,079 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:12:45,085 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:12:45,104 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:12:45,106 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:12:45,115 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:12:45,118 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:12:45,124 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:12:45,137 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:12:45,144 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:12:53,059 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:12:53,065 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:12:58,316 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:12:58,330 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:13:00,833 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:13:04,513 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:14:27,564 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:14:27,571 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:14:27,605 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:14:56,822 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:14:56,829 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:14:56,861 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:15:11,257 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:15:11,264 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:15:11,312 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:15:58,748 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:15:58,755 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:15:58,798 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:16:14,290 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:16:14,300 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:16:14,329 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:16:40,009 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:16:40,019 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:16:40,036 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:16:53,389 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:16:53,397 logwrite.py[line:56] ERROR ORA-01036: illegal variable name/number
+
+2016-09-22 11:16:53,425 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:17:33,245 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:17:33,257 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:18:56,905 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:18:56,940 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:20:25,845 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:20:25,898 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:20:43,793 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:20:43,847 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:21:08,054 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:21:08,652 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:29:14,509 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:29:14,615 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:33:32,468 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:33:32,498 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:34:34,950 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:34:35,203 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:34:59,159 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:34:59,289 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:36:32,176 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:36:32,284 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:37:24,090 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:37:30,042 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:37:32,834 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:37:34,111 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:38:08,852 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:38:08,937 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:38:57,022 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:38:57,062 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:39:16,156 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:39:16,268 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:39:22,401 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:39:23,610 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:39:39,959 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:39:40,622 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:40:27,918 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:40:28,167 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:40:54,863 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:40:57,266 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 11:50:36,914 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 11:50:38,476 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 13:48:35,379 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 13:48:35,454 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 13:48:40,913 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 13:48:40,972 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 14:16:53,844 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 14:16:54,465 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 15:17:30,689 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 15:17:30,722 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 15:17:32,341 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 15:17:32,782 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 15:17:36,727 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 15:17:38,621 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 15:17:39,007 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 15:17:39,092 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 15:27:51,285 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 15:27:52,081 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 16:05:46,999 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:05:47,051 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 16:05:58,337 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:05:58,371 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 16:09:56,302 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:09:56,338 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 16:09:56,490 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:09:56,516 logwrite.py[line:54] INFO update gzgs_gy.a_bm_xzqh set nr='贵阳市1' where bm='520100'completed successfully!
+2016-09-22 16:26:36,664 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:26:37,231 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 16:26:37,310 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:26:37,341 logwrite.py[line:54] INFO update gzgs_gy.a_bm_xzqh set nr=:nr where bm=:2completed successfully!
+2016-09-22 16:28:58,894 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:29:01,812 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-22 16:29:02,282 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:30:09,638 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:30:09,849 logwrite.py[line:54] INFO update gzgs_gy.a_bm_xzqh set nr=:nr where bm=:2('贵阳市', '520100')completed successfully!
+2016-09-22 16:31:52,584 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:31:52,635 logwrite.py[line:54] INFO 'update gzgs_gy.a_bm_xzqh set nr=:nr where bm=:2('贵阳市', '520100')' completed successfully!
+2016-09-22 16:32:24,232 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:32:24,452 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:nr where bm=:2('贵阳市', '520100')" completed successfully!
+2016-09-22 16:33:12,372 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:33:12,389 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2('贵阳市', '520100')" completed successfully!
+2016-09-22 16:34:52,708 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:34:52,720 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2 ('贵阳市', '520100')" completed successfully!
+2016-09-22 16:35:17,499 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-22 16:35:17,510 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2, ('贵阳市', '520100')" completed successfully!
+2016-09-23 09:05:35,769 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-23 09:05:35,822 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2, ('贵阳市', '520100')" completed successfully!
+2016-09-23 09:18:59,977 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-23 09:18:59,991 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2, ('贵阳市', '520100')" completed successfully!
+2016-09-23 09:19:11,737 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-23 09:19:11,752 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2, ('贵阳市', '520100')" completed successfully!
+2016-09-23 09:19:27,431 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-23 09:19:27,445 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2, ('贵阳市', '520100')" completed successfully!
+2016-09-23 09:26:19,311 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-23 09:26:19,324 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2, ('贵阳市', '520100')" completed successfully!
+2016-09-23 09:26:19,354 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-23 09:26:31,348 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-23 09:26:31,361 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2, ('贵阳市', '520100')" completed successfully!
+2016-09-23 09:26:31,392 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-23 09:27:11,269 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-23 09:27:11,282 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2, ('贵阳市', '520100')" completed successfully!
+2016-09-23 09:27:11,308 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-23 09:27:31,816 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-23 09:27:31,835 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2, ('贵阳市', '520100')" completed successfully!
+2016-09-23 09:27:31,862 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-23 09:27:58,626 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-23 09:27:58,638 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2, ('贵阳市', '520100')" completed successfully!
+2016-09-23 09:27:58,668 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-23 09:28:00,117 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-23 09:28:00,129 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2, ('贵阳市', '520100')" completed successfully!
+2016-09-23 09:28:00,162 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-23 09:28:03,983 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-23 09:28:03,992 logwrite.py[line:54] INFO "update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2, ('贵阳市', '520100')" completed successfully!
+2016-09-23 09:28:04,022 logwrite.py[line:54] INFO Disconnect from oracle 

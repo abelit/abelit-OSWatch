@@ -15,15 +15,15 @@
 import cx_Oracle  # @UnresolvedImport
 
 """Import customized modules"""
-from database import db
-from core import texthandler
-from core import logwrite
+from database import oracle
+from oswatch import texthandler
+from oswatch import logwrite
 class DataSync(object):
     def sync_data(self, method, tablesrc, tabledst, ownersrc, ownerdst, condition):
-        column_pk_src = db.Tables().query_column(tablesrc, ownersrc)['column_pk']
-        column_nm_src = db.Tables().query_column(tablesrc, ownersrc)['column_nm']
-        column_pk_dst = db.Tables().query_column(tabledst, ownerdst)['column_pk']
-        column_nm_dst = db.Tables().query_column(tabledst, ownerdst)['column_nm']
+        column_pk_src = oracle.Tables().query_column(tablesrc, ownersrc)['column_pk']
+        column_nm_src = oracle.Tables().query_column(tablesrc, ownersrc)['column_nm']
+        column_pk_dst = oracle.Tables().query_column(tabledst, ownerdst)['column_pk']
+        column_nm_dst = oracle.Tables().query_column(tabledst, ownerdst)['column_nm']
         # Using merge method to synchorize data
         sql_merge = '''
         MERGE INTO %s dst  USING %s src ON ( %s = %s )
@@ -45,10 +45,10 @@ class DataSync(object):
             # If the table has the primary key
             if len(column_pk_src) and len(column_pk_dst) and column_pk_src == column_pk_dst:
                 # Query the diffrence data between two table
-                sql_diff_result = db.SQLQuery().query_sql(texthandler.TextHandler().format_text(sql_diff, column_pk_src[0], ownersrc + '.' + tablesrc, condition, ownerdst + '.' + tabledst, condition))
+                sql_diff_result = oracle.SQLQuery().query_sql(texthandler.TextHandler().format_text(sql_diff, column_pk_src[0], ownersrc + '.' + tablesrc, condition, ownerdst + '.' + tabledst, condition))
                 if sql_diff_result:
                     sql_diff_result = sql_diff_result[0]
-                    data_diff = db.SQLQuery().query_sql(texthandler.TextHandler().format_text(sql_diff, '*', ownersrc + '.' + tablesrc, condition, ownerdst + '.' + tabledst, condition))
+                    data_diff = oracle.SQLQuery().query_sql(texthandler.TextHandler().format_text(sql_diff, '*', ownersrc + '.' + tablesrc, condition, ownerdst + '.' + tabledst, condition))
                     sql_diff_str = "("
                     for i in range(len(sql_diff_result) - 1):
                         sql_diff_str = sql_diff_str + "'" + sql_diff_result[i] + "'" + ","
@@ -72,7 +72,7 @@ class DataSync(object):
                             # Call logwrite modules to write different data into log
                             logwrite.LogWrite(logmessage=data_diff, loglevel='infoLogger').write_log()
                             # Call modules to excute sql
-                            db.SQLQuery().query_sql(sql_merge, isresult=False)
+                            oracle.SQLQuery().query_sql(sql_merge, isresult=False)
                             # Call logwrite modules to write log
                             logwrite.LogWrite(logmessage=sql_merge, loglevel='infoLogger').write_log()
                         except cx_Oracle.DatabaseError:
@@ -88,8 +88,8 @@ class DataSync(object):
                         # Insert data
                         sql_sync_insert = texthandler.TextHandler().format_text(sql_sync_insert, ownerdst + '.' + tabledst, ownersrc + '.' + tablesrc, condition, ownerdst + '.' + tabledst, condition)
                         try:
-                            db.SQLQuery().query_sql(sql_sync_delete, isresult=False)
-                            db.SQLQuery().query_sql(sql_sync_insert, isresult=False)
+                            oracle.SQLQuery().query_sql(sql_sync_delete, isresult=False)
+                            oracle.SQLQuery().query_sql(sql_sync_insert, isresult=False)
                             logwrite.LogWrite(logmessage='The sql to sync data: ' + sql_sync_delete + sql_sync_insert, loglevel='infoLogger').write_log()
                         except cx_Oracle.DatabaseError:
                             logwrite.LogWrite(logmessage="Sync data error", loglevel='errorLogger').write_log()

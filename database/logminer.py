@@ -11,7 +11,7 @@ import re
 import datetime
 import time
 
-from core import logwrite
+from oswatch import logwrite
 from sqlquery import SQLQuery
 
 class LogMiner:

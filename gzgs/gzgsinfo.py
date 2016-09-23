@@ -4,7 +4,7 @@
 @modules: gzgs.gzgsinfo
 @description:
     
-@created:Aug 2, 2016
+@created:Sep 19, 2016
 
 @author: abelit
 @email: ychenid@live.com
@@ -12,8 +12,9 @@
 @licence: GPL
 
 '''
+
 from database.datasync import DataSync
-from database import db
+from database import oracle
 from gzgs import gzgsconf
 
 # Configuration
@@ -47,11 +48,11 @@ class GZGSInfo:
             '''
         for i in ownersrc:
             if plan == 'all':
-                tablesrc = db.SQLQuery().query_sql(sql, {'owner':i})
+                tablesrc = oracle.SQLQuery().query_sql(sql, {'owner':i})
             for j in tablesrc:
                 for k in ownerdst:
                     if plan == 'all':
-                        tabledst = db.SQLQuery().query_sql(sql, {'owner':k})
+                        tabledst = oracle.SQLQuery().query_sql(sql, {'owner':k})
                     for m in tabledst:
                         DataSync().sync_data(
                             method=method,

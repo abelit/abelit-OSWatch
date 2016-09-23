@@ -1,9 +1,10 @@
 # encoding: utf-8
 '''
 @project: __oswatch__
-@modules: database.db
+@modules: database.oracle
 @description:
-@created: Jul 31, 2016
+    
+@created:Sep 22, 2016
 
 @author: abelit
 @email: ychenid@live.com
@@ -13,40 +14,130 @@
 '''
 
 import datetime
+import os
+'''
+Import module cx_Oracle to connect oracle using python
+'''
+try:
+    import cx_Oracle
+except ImportError:
+    cx_oracle_exists = False
+else:
+    cx_oracle_exists = True
+    
 """Import customized modules"""
-from database import dbconnect
-from core import texthandler
-from core import logwrite
-from config import dbconfig
+from oswatch import texthandler
+from oswatch import logwrite
+from config import dbconfig # Module dbocnfig in the package of config to configure all information for this project
 
-class DB(object):      
-    # Define function format_sql to replace the string for new sqltext
-    pass
- 
-"""docstring for Oracle"""
-class SQLQuery(object):
-    """docstring for SQLQuery"""
-    def query_sql(self, sql, params='', isresult=True):
-        # Connect to oracle
-        conn = dbconnect.DBConnect().conn_oracle()
-        # Declare cursor
-        curs = conn.cursor()
-        curs.execute(sql, params)
-        if isresult:
-            result = curs.fetchall()
-            return result
-        curs.execute('commit')
-        # Release resource
-        curs.close()
-        conn.close()
-         
-class Users(SQLQuery):
+class Oracle:      
+    def __init__(self, *args):
+        '''
+        username: oracle user,
+        password: oracle user's password,
+        mod:  "normal, sysdba, sysoper",defaut is normal,
+        host: the oracle database locates
+        port: the port listen oracle database service, default is 1521
+        insrance: the service name of the oracle database instance 
+        '''
+        self.username = dbconfig.oracle['username']
+        self.password = dbconfig.oracle['password']
+        self.mode     = dbconfig.oracle['mode']
+        self.host     = dbconfig.oracle['host']
+        self.port     = dbconfig.oracle['port']
+        self.instance = dbconfig.oracle['instance']
+
+    def connect(self):
+        '''
+        connect method
+        '''
+        
+        '''Set lang environment'''
+        NLS_LANG = dbconfig.oracle['NLS_LANG']
+        os.environ['NLS_LANG'] = NLS_LANG
+
+        if not cx_oracle_exists:
+            msg = "The cx_Oracle module is required. 'pip install cx_Oracle' should do the trick. If cx_Oracle is installed, make sure ORACLE_HOME & LD_LIBRARY_PATH is set"
+            logwrite.LogWrite(logmessage=msg, loglevel='errorLogger').write_log()
+    
+        dsn = cx_Oracle.makedsn(host=self.host, port=self.port, service_name=self.instance)
+        try:
+            if self.mode == 'sysdba' or self.username == 'sys':
+                self.connection = cx_Oracle.connect(self.username, self.password, dsn, mode=cx_Oracle.SYSDBA)
+            else:
+                self.connection = cx_Oracle.connect(self.username, self.password, dsn)
+        except cx_Oracle.DatabaseError as cx_msg:
+            msg = 'Could not connect to database: %s, dsn: %s ' % (cx_msg, dsn)
+            logwrite.LogWrite(logmessage=msg, loglevel='errorLogger').write_log()
+        else:
+            logwrite.LogWrite(logmessage="Connect oracle "+ self.connection.version+" successfully!", loglevel='infoLogger').write_log()
+        return self.connection
+    
+    def disconnect(self):
+        try:
+            self.cursor.close()
+            self.connection.close()
+            logwrite.LogWrite(logmessage="Disconnect from oracle ",loglevel='infoLogger').write_log()
+        except cx_Oracle.DatabaseError as cx_msg:
+            msg = cx_msg
+            logwrite.LogWrite(logmessage=msg, loglevel='errorLogger').write_log()
+        
+    def select(self, sql, bindvars=''):
+        """
+        Given a valid SELECT statement, return the results from the database
+        """
+
+        results = None
+
+        try:
+            self.connect()
+            self.cursor = self.connection.cursor()
+            self.cursor.execute(sql, bindvars)
+            results = self.cursor.fetchall()
+        except cx_Oracle.DatabaseError as cx_msg:
+            msg = cx_msg
+            logwrite.LogWrite(logmessage=msg, loglevel='errorLogger').write_log()
+        finally:
+            self.disconnect()
+        return results 
+      
+    def execute(self, sql, bindvars='', commit=False):
+        """
+        Execute whatever SQL statements are passed to the method;
+        commit if specified. Do not specify fetchall() in here as
+        the SQL statement may not be a select.
+        bindvars is a dictionary of variables you pass to execute.
+        """
+        try:
+            self.connect()
+            self.cursor = self.connection.cursor()
+            self.cursor.execute(sql, bindvars)
+        except cx_Oracle.DatabaseError as cx_msg:
+            msg = cx_msg
+            logwrite.LogWrite(logmessage=msg, loglevel='errorLogger').write_log()
+        else:
+            msg = '"'+sql+', '+str(bindvars)+'"'+" completed successfully!"
+            logwrite.LogWrite(logmessage=msg, loglevel='infoLogger').write_log()
+        finally:
+            # Only commit if it-s necessary.
+            if commit:
+                self.connection.commit()
+            else:
+                pass
+            self.disconnect()
+            
+class Users(object):
     """docstring for Users"""
+    
+    def __init__(self):
+        None
+        
     def query_user(self):
         sql = '''
         select * from all_users  where username like :username
         '''
         return self.query_sql(sql, {'username':'GZGS%'})
+    
     def create_user(self):
         pass
      
@@ -57,7 +148,7 @@ class Users(SQLQuery):
         pass
      
          
-class Tables(SQLQuery):
+class Tables(object):
     """docstring for Tables"""
     # def __init__(self, arg):
     #     super(Tables, self).__init__()
@@ -151,7 +242,7 @@ class Archivelogs(object):
         self.arg = arg
          
  
-class Sessions(SQLQuery):
+class Sessions(object):
     """docstring for Sessions"""
     def query_session(self):
         sql = '''
@@ -382,6 +473,7 @@ class DataBackupRestore(object):
                loglevel='warnLogger').write_log()
                 
 if __name__ == '__main__':
-    DataBackupRestore().backup_restore(br_method='expdp', br_type='byuser')
-
+    #DataBackupRestore().backup_restore(br_method='expdp', br_type='byuser')
+    #print(Oracle().select('select username from all_users'))
+    Oracle().execute("update gzgs_gy.a_bm_xzqh set nr=:1 where bm=:2", ('贵阳市','520100'),commit=True)
 

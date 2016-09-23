@@ -15,15 +15,15 @@
 """
 Import customized modules
 """
-from core import logwrite
-from core import texthandler
-from database import db
+from oswatch import logwrite
+from oswatch import texthandler
+from database import oracle
 
 class DBTrigger( object ):
     """docstring for Trigger"""       
     def create_datasync_trigger( self, trigger_name, tablesrc, tabledst, ownersrc, ownerdst ):
-        column_pk = db.Tables().query_column(tablesrc, ownersrc)['column_pk']
-        column_nm = db.Tables().query_column(tablesrc, ownersrc)['column_nm']
+        column_pk = oracle.Tables().query_column(tablesrc, ownersrc)['column_pk']
+        column_nm = oracle.Tables().query_column(tablesrc, ownersrc)['column_nm']
         # Create trigger sql
         trigger_text = '''
         create or replace trigger %s
