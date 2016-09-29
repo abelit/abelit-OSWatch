@@ -7,6 +7,7 @@ encoding//database/oracle.py=utf-8
 encoding//database/plsql.py=utf-8
 encoding//database/test.py=utf-8
 encoding//gzgs/gzgsinfo.py=utf-8
+encoding//network/proxy.py=utf-8
 encoding//oswatch/email.py=cp936
 encoding//oswatch/logwrite.py=utf-8
 encoding//oswatch/pathget.py=utf-8
