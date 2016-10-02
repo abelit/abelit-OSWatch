@@ -144,8 +144,11 @@ class User(object):
         None
         
     def select(self):
-        sql = """select * from all_users  where username like :username"""
-        return self.query_sql(sql, {'username':'GZGS%'})
+        sql = """select * from dba_users"""
+        # Excute sql to query all users from view or table of the dba_users
+        results = oracle.Oracle().select(sql)
+
+        return results
     
     def create(self, username, password, default_tablespace=None, temporary_tablespace=None):
         sql = """CREATE USER {0} IDENTIFIED BY {1}"""
@@ -158,21 +161,36 @@ class User(object):
         if temporary_tablespace is not None:
             sql = sql+" TEMPORARY TABLESPACE "+temporary_tablespace
 
+        sql = sql.format(username, password)
         # Excute sql to create user
-        oracle.Oracle().execute(sql.format(username, password))
-        
-        logwrite.LogWrite(loglevel='infoLogger', logmessage=sql).write_log()
-     
-    def drop(self):
-        sql = """DROP USER {0} cascade"""
-        # Excute sql to drop user (parameter 'cascade' will drop it's objects when drop user)
         oracle.Oracle().execute(sql)
         
-        logwrite.LogWrite(loglevel='infoLogger', logmessage=sql).write_log()
+        # logwrite.LogWrite(loglevel='infoLogger', logmessage=sql).write_log()
+        return sql
      
-    def alter(self):
-        pass
+    def drop(self, username):
+        sql = """DROP USER {0} cascade""".format(username)
+        # Excute sql to drop user (parameter 'cascade' will drop it's objects when drop user)
+        oracle.Oracle().execute(sql)
+
+        return sql
      
+    def alter(self, username, password=None, default_tablespace=None, temporary_tablespace=None):
+        sql = """ALTER USER {0}"""
+        if password is not None:
+            sql = sql+" IDENTIFIED BY "+password
+
+        if default_tablespace is not None:
+            sql = sql+" DEFAULT TABLESPACE "+default_tablespace
+
+        if temporary_tablespace is not None:
+            sql = sql+"TEMPORARY TABLESPACE "+temporary_tablespace
+        
+        sql = sql.format(username)
+        # Excute sql to alter user's properties
+        oracle.Oracle().execute(sql)
+
+        return sql
          
 class Table(object):
     """docstring for Tables"""
