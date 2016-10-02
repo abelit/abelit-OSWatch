@@ -638,3 +638,254 @@
 2016-09-27 16:18:06,483 logwrite.py[line:54] INFO expdp user/password tablespaces=A_BM_XZQH directory=BACKUP dumpfile=A_BM_XZQH_expdp_impdp_bytablespace_20160927_%U.dmp logfile=A_BM_XZQH_expdp_bytablespace_20160927.log parallel=16 cluster=n REUSE_DUMPFILES=Y
 2016-09-27 16:18:19,519 logwrite.py[line:54] INFO expdp user/password tablespaces=A_BM_XZQH directory=BACKUP dumpfile=A_BM_XZQH_expdp_impdp_bytablespace_20160927_%U.dmp logfile=A_BM_XZQH_expdp_bytablespace_20160927.log parallel=16 cluster=n REUSE_DUMPFILES=Y
 2016-09-27 16:18:19,526 logwrite.py[line:54] INFO imp user/password fromuser=GZGS_GY touser=GZGS_GY table=A_BM_XZQH file=/u01/app/oracle/exp_backup/GZGS_GY.A_BM_XZQH_exp_imp_bytable_20160927.dmp log=/u01/app/oracle/exp_backup/GZGS_GY.A_BM_XZQH_imp_bytable_20160927.log 
+2016-09-30 15:17:02,866 logwrite.py[line:54] INFO expdp user/password tablespaces=A_BM_XZQH directory=BACKUP dumpfile=A_BM_XZQH_expdp_impdp_bytablespace_20160930_%U.dmp logfile=A_BM_XZQH_expdp_bytablespace_20160930.log parallel=16 cluster=n REUSE_DUMPFILES=Y
+2016-09-30 15:32:41,423 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 15:32:41,550 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 15:33:06,028 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 15:33:06,061 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 15:33:57,428 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 15:33:57,492 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 15:37:29,085 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 15:37:29,222 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 15:37:29,366 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 15:37:29,409 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:26:28,432 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:26:29,051 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:26:29,380 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:26:29,456 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:26:29,664 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:26:29,785 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:26:29,923 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:26:29,957 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:26:30,173 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:26:30,382 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:26:30,541 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:26:30,574 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:26:30,799 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:26:30,914 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:26:31,293 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:26:31,528 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:09,391 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:09,456 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:09,644 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:09,696 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:09,873 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:10,076 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:10,334 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:10,388 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:11,267 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:11,431 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:11,956 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:12,134 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:12,429 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:12,616 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:12,919 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:13,014 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:43,870 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:44,048 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:44,204 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:44,285 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:44,384 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:44,441 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:44,541 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:44,592 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:49,034 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:49,106 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:49,355 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:49,411 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:49,655 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:49,746 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:27:50,048 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:27:50,240 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:28:10,510 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:28:10,594 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:28:10,790 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:28:10,850 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:28:11,272 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:28:11,781 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:28:12,382 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:28:12,609 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:28:13,027 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:28:13,295 logwrite.py[line:56] ERROR ORA-00907: missing right parenthesis
+
+2016-09-30 16:28:13,367 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:29:19,443 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:29:19,545 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:29:19,766 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:29:19,803 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:29:19,915 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:29:20,015 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:29:20,241 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:29:20,278 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:29:20,500 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:29:20,531 logwrite.py[line:56] ERROR ORA-00907: missing right parenthesis
+
+2016-09-30 16:29:20,548 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:29:24,916 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:29:25,057 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:29:25,151 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:29:25,211 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:29:25,460 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:29:25,648 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:29:25,824 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:29:25,925 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:29:26,265 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:29:26,378 logwrite.py[line:56] ERROR ORA-00907: missing right parenthesis
+
+2016-09-30 16:29:26,444 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:24,386 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:24,470 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:24,663 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:24,743 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:25,012 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:25,100 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:25,272 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:25,303 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:25,469 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:25,491 logwrite.py[line:56] ERROR ORA-00907: missing right parenthesis
+
+2016-09-30 16:30:25,517 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:28,570 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:28,647 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:28,755 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:28,784 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:28,916 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:28,986 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:29,103 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:29,139 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:29,286 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:29,305 logwrite.py[line:56] ERROR ORA-00907: missing right parenthesis
+
+2016-09-30 16:30:29,332 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:51,686 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:51,864 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:52,041 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:52,073 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:52,173 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:52,247 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:52,378 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:52,413 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:52,520 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:52,548 logwrite.py[line:56] ERROR ORA-00907: missing right parenthesis
+
+2016-09-30 16:30:52,569 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:54,756 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:54,824 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:55,047 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:55,074 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:55,217 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:55,308 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:55,483 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:55,522 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:30:55,681 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:30:55,730 logwrite.py[line:56] ERROR ORA-00907: missing right parenthesis
+
+2016-09-30 16:30:55,770 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:31:55,364 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:31:55,598 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:31:56,635 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:31:56,855 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:31:57,671 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:31:57,814 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:31:58,025 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:31:58,051 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:31:58,158 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:31:58,227 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:35:18,525 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:35:18,590 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:35:18,696 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:35:18,730 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:35:18,856 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:35:18,932 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:35:19,111 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:35:19,141 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:35:19,258 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:35:30,836 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:35:31,053 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:35:31,788 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:35:31,839 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:35:32,003 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:35:32,509 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:35:33,956 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:35:34,589 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:35:35,842 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:35:45,076 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:36:18,195 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:36:18,254 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:36:18,363 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:36:18,396 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:36:18,502 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:36:18,590 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:36:18,772 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:36:18,807 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:36:18,993 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:36:27,308 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:36:57,013 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:36:57,077 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:36:57,170 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:36:57,223 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:36:57,469 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:36:57,594 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:36:57,695 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:36:57,735 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:36:57,853 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:37:03,901 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:47:34,911 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:47:35,061 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:47:35,359 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:47:35,622 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:47:36,284 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:47:36,665 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:47:36,946 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:47:37,232 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:47:37,831 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:47:44,598 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:49:14,884 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:49:15,000 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:49:15,215 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:49:15,292 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:49:15,425 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:49:15,500 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:49:15,601 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:49:15,640 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:49:15,775 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:49:19,425 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:49:19,484 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:49:19,590 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:49:19,646 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:49:19,835 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:49:19,908 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:49:20,101 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:49:20,138 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:49:20,293 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:49:28,657 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:51:21,173 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:51:21,241 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:51:21,456 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:51:21,499 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:51:21,621 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:51:21,684 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:51:21,817 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:51:21,859 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:51:21,975 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:51:27,935 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:52:09,917 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:52:10,042 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:52:10,198 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:52:10,235 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:52:10,380 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:52:10,462 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:52:10,584 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:52:10,643 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:52:10,791 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:52:28,001 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:52:59,454 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:52:59,562 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:52:59,680 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:52:59,736 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:53:00,090 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:53:00,351 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:53:00,508 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:53:00,616 logwrite.py[line:54] INFO Disconnect from oracle 
+2016-09-30 16:53:00,738 logwrite.py[line:54] INFO Connect oracle 11.2.0.3.0 successfully!
+2016-09-30 16:53:07,000 logwrite.py[line:54] INFO Disconnect from oracle 

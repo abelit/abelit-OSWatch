@@ -15,9 +15,7 @@
 
 import datetime
 import os
-'''
-Import module cx_Oracle to connect oracle using python
-'''
+"""Import module cx_Oracle to connect oracle using python"""
 try:
     import cx_Oracle
 except ImportError:
@@ -146,14 +144,31 @@ class User(object):
         None
         
     def select(self):
-        sql = '''select * from all_users  where username like :username'''
+        sql = """select * from all_users  where username like :username"""
         return self.query_sql(sql, {'username':'GZGS%'})
     
-    def create(self):
-        pass
+    def create(self, username, password, default_tablespace=None, temporary_tablespace=None):
+        sql = """CREATE USER {0} IDENTIFIED BY {1}"""
+
+        # Create default tablespace if needs when create user, and default tablespace is user if no tablespace to be assigned
+        if default_tablespace is not None:
+            sql = sql+" DEFAULT TABLESPACE "+default_tablespace
+
+        # Create temporary tablespace if needs when create user, and default temporary tablespace is temp if no tablespace to be assigned
+        if temporary_tablespace is not None:
+            sql = sql+" TEMPORARY TABLESPACE "+temporary_tablespace
+
+        # Excute sql to create user
+        oracle.Oracle().execute(sql.format(username, password))
+        
+        logwrite.LogWrite(loglevel='infoLogger', logmessage=sql).write_log()
      
     def drop(self):
-        pass
+        sql = """DROP USER {0} cascade"""
+        # Excute sql to drop user (parameter 'cascade' will drop it's objects when drop user)
+        oracle.Oracle().execute(sql)
+        
+        logwrite.LogWrite(loglevel='infoLogger', logmessage=sql).write_log()
      
     def alter(self):
         pass
@@ -164,7 +179,7 @@ class Table(object):
     # def __init__(self, arg):
     #     super(Tables, self).__init__()
     #     self.arg = arg
-    def fieldname(self, tablename, owner):
+    def field(self, tablename, owner):
         # Query all columns of the table
         sql = '''select column_name from all_tab_columns \
             where table_name = :1 and owner = :2'''
@@ -172,7 +187,7 @@ class Table(object):
         #results = [row[0]  for row in results]
         return results
         
-    def fieldlength(self, tablename, owner):
+    def primarykey(self, tablename, owner):
         # Query primary key of the table
         sql = '''select col.column_name  from all_constraints con, \
             all_cons_columns col where con.constraint_name = col.constraint_name \
@@ -491,4 +506,10 @@ class OracleRecovery(object):
 
 if __name__ == '__main__':
     #print(OracleBackup().expdp(backup_type='bytablespace'))
+    if Table().fieldname('A_QYMC', 'GZGS_HZ') == Table().fieldname('A_QYMC', 'GZGS_GY'):
+        print("yes")
+    else:
+        print("no")
+        
+    
     

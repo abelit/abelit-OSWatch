@@ -16,98 +16,167 @@ import cx_Oracle  # @UnresolvedImport
 
 """Import customized modules"""
 from database import oracle
-from oswatch import texthandler
 from oswatch import logwrite
+
 class DataSync(object):
     def sync_data(self, method, tablesrc, tabledst, ownersrc, ownerdst, condition):
-        column_pk_src = oracle.Tables().query_column(tablesrc, ownersrc)['column_pk']
-        column_nm_src = oracle.Tables().query_column(tablesrc, ownersrc)['column_nm']
-        column_pk_dst = oracle.Tables().query_column(tabledst, ownerdst)['column_pk']
-        column_nm_dst = oracle.Tables().query_column(tabledst, ownerdst)['column_nm']
-        # Using merge method to synchorize data
-        sql_merge = '''
-        MERGE INTO %s dst  USING %s src ON ( %s = %s )
+        '''
+        Function: sync_data
+        Summary: sync_data is a method belongs to class DataSync to synchronize data between two tables
+        Examples:   tablesrc = 'A_BM_XZQH'
+                    tabledst = 'A_BM_XZQH'
+                    ownersrc = 'GZGS_GY'
+                    ownerdst = 'GZGS_HZ'
+                    condition = ""
+                    method = 'merge'
+                    DataSync().sync_data(method=method, tablesrc=tablesrc, tabledst=tabledst, \
+                        ownersrc=ownersrc, ownerdst=ownerdst, condition=condition)
+        Attributes: 
+            @param (self):InsertHere
+            @param (method):It's a synchronous method including "merge" and "delete,insert"
+            @param (tablesrc):The source table
+            @param (tabledst):The target table
+            @param (ownersrc):The source table of owner
+            @param (ownerdst):The target table of owner
+            @param (condition):The condition in the sql like "where ..."
+        Returns: 0
+        '''
+        tablesrc_pk = oracle.Table().primarykey(tablesrc, ownersrc)
+        tablesrc_field = oracle.Table().field(tablesrc, ownersrc)
+        tabledst_pk = oracle.Table().primarykey(tabledst, ownerdst)
+        tabledst_field = oracle.Table().field(tabledst, ownerdst)
+       
+        issync = True
+        loglevel = "infoLogger"
+        logmessage = ""
+        
+        # Example merge sql to sychrorize data
+        sql_merge = """MERGE INTO {0} dst USING {1} src ON ({2} = {3})
         WHEN MATCHED THEN
-        UPDATE SET %s %s
-        WHEN NOT MATCHED THEN
-        INSERT VALUES (%s)
-        '''
-        sql_diff = '''
-        select %s from (select * from %s %s minus select * from %s %s)
-        '''
-        sql_sync_delete = '''
-        delete from %s where %s in (select %s from (select * from %s %s minus select * from %s %s))
-        '''
-        sql_sync_insert = '''
-        insert into %s (select * from %s %s minus select * from %s %s)
-        '''
-        if column_nm_src == column_nm_dst:
-            # If the table has the primary key
-            if len(column_pk_src) and len(column_pk_dst) and column_pk_src == column_pk_dst:
-                # Query the diffrence data between two table
-                sql_diff_result = oracle.SQLQuery().query_sql(texthandler.TextHandler().format_text(sql_diff, column_pk_src[0], ownersrc + '.' + tablesrc, condition, ownerdst + '.' + tabledst, condition))
-                if sql_diff_result:
-                    sql_diff_result = sql_diff_result[0]
-                    data_diff = oracle.SQLQuery().query_sql(texthandler.TextHandler().format_text(sql_diff, '*', ownersrc + '.' + tablesrc, condition, ownerdst + '.' + tabledst, condition))
-                    sql_diff_str = "("
-                    for i in range(len(sql_diff_result) - 1):
-                        sql_diff_str = sql_diff_str + "'" + sql_diff_result[i] + "'" + ","
-                    sql_diff_str = sql_diff_str + sql_diff_result[len(sql_diff_result) - 1] + ")"
-                    condition = condition + ' ' + 'WHERE' + ' ' + column_pk_src[0] + ' ' + 'IN' + ' ' + sql_diff_str
-                    # Using merge sync data
-                    if method == 'merge':
-                        sql_merge_col1 = ''
-                        for row in range(1, len(column_nm_src) - 1):
-                            sql_merge_col1 = sql_merge_col1 + 'dst' + '.' + column_nm_src[row] + '=' + 'src' + '.' + column_nm_src[row] + ','
-                        sql_merge_col1 = sql_merge_col1 + 'dst' + '.' + column_nm_src[len(column_nm_src) - 1] + '=' + 'src' + '.' + column_nm_src[len(column_nm_src) - 1]
-                        
-                        sql_merge_col2 = ''
-                        for row in range(len(column_nm_src) - 1):
-                            sql_merge_col2 = sql_merge_col2 + 'src' + '.' + column_nm_src[row] + ','
-                        sql_merge_col2 = sql_merge_col2 + 'src' + '.' + column_nm_src[len(column_nm_src) - 1]
-                        
-                        sql_merge = texthandler.TextHandler().format_text(sql_merge, ownerdst + '.' + tabledst, ownersrc + '.' + tablesrc, 'dst' + '.' + column_pk_src[0], 'src' + '.' + column_pk_src[0], sql_merge_col1, condition, sql_merge_col2)
-                  
-                        try:
-                            # Call logwrite modules to write different data into log
-                            logwrite.LogWrite(logmessage=data_diff, loglevel='infoLogger').write_log()
-                            # Call modules to excute sql
-                            oracle.SQLQuery().query_sql(sql_merge, isresult=False)
-                            # Call logwrite modules to write log
-                            logwrite.LogWrite(logmessage=sql_merge, loglevel='infoLogger').write_log()
-                        except cx_Oracle.DatabaseError:
-                            logwrite.LogWrite(logmessage="Sync data error", loglevel='errorLogger').write_log()
-                        else:
-                            logwrite.LogWrite(logmessage="Sync data successfully between " + ownersrc + '.' + tablesrc + ' and ' + ownerdst + '.' + tabledst, loglevel='infoLogger').write_log()    
-                    # Using minus,delete,insert sync data
-                    elif method == 'insert':
-                        # Call logwrite modules to write different data into log
-                        logwrite.LogWrite(logmessage=data_diff, loglevel='infoLogger').write_log()
-                        # Delete data
-                        sql_sync_delete = texthandler.TextHandler().format_text(sql_sync_delete, ownerdst + '.' + tabledst, column_pk_dst[0], column_pk_dst[0], ownersrc + '.' + tablesrc, condition, ownerdst + '.' + tabledst, condition)
-                        # Insert data
-                        sql_sync_insert = texthandler.TextHandler().format_text(sql_sync_insert, ownerdst + '.' + tabledst, ownersrc + '.' + tablesrc, condition, ownerdst + '.' + tabledst, condition)
-                        try:
-                            oracle.SQLQuery().query_sql(sql_sync_delete, isresult=False)
-                            oracle.SQLQuery().query_sql(sql_sync_insert, isresult=False)
-                            logwrite.LogWrite(logmessage='The sql to sync data: ' + sql_sync_delete + sql_sync_insert, loglevel='infoLogger').write_log()
-                        except cx_Oracle.DatabaseError:
-                            logwrite.LogWrite(logmessage="Sync data error", loglevel='errorLogger').write_log()
-                        else:
-                            logwrite.LogWrite(logmessage="Sync data successfully between " + ownersrc + '.' + tablesrc + ' and ' + ownerdst + '.' + tabledst, loglevel='infoLogger').write_log()
-                    else:
-                        logwrite.LogWrite(logmessage="Please input 'insert' or 'merge' to sync data,like syncdata(merge)", loglevel='errorLogger').write_log()
-                else:
-                    logwrite.LogWrite(logmessage="No data need to syncthonize between " + ownersrc + '.' + tablesrc + ' and ' + ownerdst + '.' + tabledst, loglevel='warnLogger').write_log()
+        UPDATE SET {4} {5} 
+        WHEN NOT MATCHED THEN 
+        INSERT VALUES({6}) {7}"""
+        # Example sql to query diffrent data between two tables
+        sql_diff ="select {0} from (select * from {1} {2} minus select * from {3} {4})"
+        # Example sql to delte data
+        sql_delete = "delete from {0} where {1} in (select {2} from (select * from {3} {4} \
+            minus select * from {5} {6}))"
+        # Example sql to insert data
+        sql_insert = "insert into {0} (select * from {1} {2} minus select * from {3} {4})"
+ 
+        # The two tables should have the same field name
+        if tablesrc_field  != tabledst_field:
+            issync = False
+            loglevel = "errorLogger"
+            logmessage = "There are diffrences between two tables ("+tablesrc+","+tabledst+\
+                ") which need to be synchorizing."
+
+        
+
+        # The two tables should have the same primary key
+        if len(tablesrc_pk) and len(tabledst_pk) and tablesrc_pk == tabledst_pk:
+            issync = True   
+        else:
+            issync = False
+            loglevel = "errorLogger"
+            logmessage="Empty list, no primary key on table " + ownersrc + '.' + tablesrc + \
+                ' or ' + ownersrc + '.' + tablesrc
+
+
+        if issync:
+            # Query the diffrence data between two table
+            results = oracle.Oracle().select(sql_diff.format('*',ownersrc + '.' + tablesrc, \
+                condition, ownerdst + '.' + tabledst, condition))
+            # Generate  for condition strings
+            strings = []
+            [strings.append(results[i][0]) for i in range(len(results))]
+            condition = condition + ' WHERE ' + tablesrc_pk[0] + ' IN ' + str(tuple(strings))
+
+        if results and method == 'merge':                  
+            # Using merge sync data
+            
+            # update_fields = ''
+            # for row in range(1, len(tablesrc_field) - 1):
+            #     update_fields = update_fields + 'dst.' + tablesrc_field[row] + '=' + \
+            #         'src.' + tablesrc_field[row] + ','
+            # update_fields = update_fields + 'dst.' + tablesrc_field[len(tablesrc_field) - 1] + \
+            #     '=' + 'src.' + tablesrc_field[len(tablesrc_field) - 1]
+            #     
+            # insert_fields = ''
+            # for row in range(len(tablesrc_field) - 1):
+            #     insert_fields = insert_fields + 'src.' + tablesrc_field[row] + ','
+            # insert_fields = insert_fields + 'src.' + tablesrc_field[len(tablesrc_field) - 1]
+            
+            # Join string like values(field1,field2,...)
+            update_strings = []
+            tabledst_field.remove(tabledst_pk) # update all fields but primary key field,so remove it from list
+            [update_strings.append('dst.'+i+'='+'src.'+i) for i in tabledst_field]
+            update_fields = ",".join(update_strings)
+
+            insert_strings = []
+            [insert_strings.append('src.'+i) for i in tabledst_field]
+            insert_fields = ",".join(insert_strings)
+
+            sql_merge = sql_merge.format(ownerdst + '.' + tabledst, ownersrc + '.' + tablesrc, \
+                'dst.' + tablesrc_pk[0], 'src.' + tablesrc_pk[0], update_fields, condition, \
+                insert_fields, condition)
+            
+            try:
+                # Call modules to excute sql
+                oracle.Oracle().execute(sql_merge)
+            except cx_Oracle.DatabaseError:
+                logmessage="Sync data error"
+                loglevel='errorLogger'
             else:
-                logwrite.LogWrite(logmessage="Empty list, no primary key on table " + ownersrc + '.' + tablesrc + ' or ' + ownersrc + '.' + tablesrc, loglevel='errorLogger' + ' or there are diffrences on two tables').write_log()
-  
+                logmessage = 'The diffrent data: ' + results + \
+                    '\nThe sql to sync data: ' + sql_merge + \
+                    "\nSync data successfully between " + ownersrc + '.' + tablesrc + \
+                    ' and ' + ownerdst + '.' + tabledst
+                loglevel='infoLogger'
+        # Using minus,delete,insert sync data
+        elif results and method == 'insert':
+            sql_delete = sql_delete.format(\
+                ownerdst + '.' + tabledst, tabledst_pk[0], tabledst_pk[0], \
+                ownersrc + '.' + tablesrc, condition, ownerdst + '.' + tabledst, condition)
+            sql_insert = sql_insert.format(\
+                ownerdst + '.' + tabledst, ownersrc + '.' + \
+                tablesrc, condition, ownerdst + '.' + tabledst, condition)
+            try:
+                # delete data
+                oracle.Oracle().execute(sql_delete)
+                # insert data
+                oracle.Oracle().execute(sql_insert)
+            except cx_Oracle.DatabaseError:
+                logmessage = "Sync data error"
+                loglevel = 'errorLogger'
+            else:
+                logmessage ='The diffrent data: ' + results + \
+                    '\n The sql to sync data: ' + sql_delete + sql_insert+ \
+                    "\nSync data successfully between " + ownersrc + '.' + tablesrc + \
+                    ' and ' + ownerdst + '.' + tabledst
+                loglevel = 'infoLogger'
+        elif results in None: 
+            #results is a variable defined before which returns the diffrent data between tow tables
+            logmessage = "No data need to syncthonize between " + ownersrc + '.' + tablesrc + \
+                ' and ' + ownerdst + '.' + tabledst
+            loglevel = 'warnLogger'
+        else:
+            logmessage = "Please input 'insert' or 'merge' to sync data,like syncdata(merge)"
+            loglevel = 'errorLogger'
+
+        # Call logwrite modules to write log
+        logwrite.LogWrite(loglevel=loglevel, logmessage=logmessage).write_log()
+
 class DataCompare(object):
     """class DataCompare Doc"""
     def compare_data(self):
-        pass
-    
-# Call function to sync data
+        # Example sql to query diffrent data between two tables
+        sql_diff = "select {0} from (select * from {1} {2} minus select * from {3} {4})"
+        # Query the diffrence data between two table
+        results = oracle.Oracle().select(sql_diff.format('*',ownersrc + '.' + \
+            tablesrc, condition, ownerdst + '.' + tabledst, condition))
+
+
 if __name__ == '__main__':
     tablesrc = 'A_BM_XZQH'
     tabledst = 'A_BM_XZQH'
@@ -115,4 +184,5 @@ if __name__ == '__main__':
     ownerdst = 'GZGS_HZ'
     condition = ""
     method = 'merge'
-    DataSync().sync_data(method=method, tablesrc=tablesrc, tabledst=tabledst, ownersrc=ownersrc, ownerdst=ownerdst, condition=condition)
+    DataSync().sync_data(method=method, tablesrc=tablesrc, tabledst=tabledst, \
+        ownersrc=ownersrc, ownerdst=ownerdst, condition=condition)
