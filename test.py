@@ -45,7 +45,7 @@ def hello():
         "\n, and I am 27 years old"
     if ee is not None:
         print(ff+str(ee))
-    return 0
+    return 1
 
 if __name__ == '__main__':
     hello()
