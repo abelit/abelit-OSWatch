@@ -1,5 +1,5 @@
 # encoding: utf-8
-'''
+"""
 @project: __oswatch__
 @modules: database.oracle
 @description:
@@ -11,11 +11,11 @@
 
 @licence: GPL
 
-'''
+"""
 
 import datetime
 import os
-"""Import module cx_Oracle to connect oracle using python"""
+# Import module cx_Oracle to connect oracle using python
 try:
     import cx_Oracle
 except ImportError:
@@ -23,25 +23,30 @@ except ImportError:
 else:
     cx_oracle_exists = True
     
-"""Import customized modules"""
+# Import customized modules
 from oswatch import logwrite
-"""
-Module dbocnfig in the package of config to configure 
+# Module dbocnfig in the package of config to configure 
 all information for this project
-"""
 from config import dbconfig 
 
 
 class Oracle:      
     def __init__(self, *args):
-        '''
-        username: oracle user,
-        password: oracle user's password,
-        mod:  "normal, sysdba, sysoper",defaut is normal,
-        host: the oracle database locates
-        port: the port listen oracle database service, default is 1521
-        insrance: the service name of the oracle database instance 
-        '''
+        """
+        Function: __init__
+        Summary: InsertHere
+        Examples: InsertHere
+        Attributes: 
+            @param (self):InsertHere
+            @param (*args):InsertHere
+            username: oracle user,
+            password: oracle user's password,
+            mod:  "normal, sysdba, sysoper",defaut is normal,
+            host: the oracle database locates
+            port: the port listen oracle database service, default is 1521
+            insrance: the service name of the oracle database instance 
+        Returns: InsertHere
+        """
         self.username = dbconfig.oracle['username']
         self.password = dbconfig.oracle['password']
         self.mode     = dbconfig.oracle['mode']
@@ -50,18 +55,22 @@ class Oracle:
         self.instance = dbconfig.oracle['instance']
 
     def __connect(self):
-        '''
-        connect method
-        '''
-        
-        '''Set lang environment'''
+        """
+        Function: __connect
+        Summary: InsertHere
+        Examples: self.__connect()
+        Attributes: 
+            @param (self):Call __connect metod Oracle.__connect()
+        Returns: connection
+        """
+        # Set lang environment
         NLS_LANG = dbconfig.oracle['NLS_LANG']
         os.environ['NLS_LANG'] = NLS_LANG
 
         if not cx_oracle_exists:
-            msg = '''The cx_Oracle module is required. 'pip install cx_Oracle' \
+            msg = """The cx_Oracle module is required. 'pip install cx_Oracle' \
                 should do the trick. If cx_Oracle is installed, make sure ORACLE_HOME \
-                & LD_LIBRARY_PATH is set'''
+                & LD_LIBRARY_PATH is set"""
             logwrite.LogWrite(logmessage=msg, loglevel='errorLogger').write_log()
     
         dsn = cx_Oracle.makedsn(host=self.host, port=self.port, service_name=self.instance)
@@ -110,15 +119,24 @@ class Oracle:
       
     def execute(self, sql, bindvars='', many=False, commit=False):
         """
-        Execute whatever SQL statements are passed to the method;
-        commit if specified. Do not specify fetchall() in here as
-        the SQL statement may not be a select.
-        bindvars is a dictionary of variables you pass to execute.
+        Function: execute
+        Summary: Execute whatever SQL statements are passed to the method;
+            commit if specified. Do not specify fetchall() in here as
+            the SQL statement may not be a select.
+            bindvars is a dictionary of variables you pass to execute.
+        Examples: Oracle().execute(...)
+        Attributes: 
+            @param (self):class method
+            @param (sql):The sql that will be excuted 
+            @param (bindvars) default='': The bind variables of sql
+            @param (many) default=False: If set many is True, multiple sql will be excuted at the same time
+            @param (commit) default=False: False is not needed commit after excuting sql, but True is needed commit, gernerally DML sql
+        Returns: NO value will be returned
         """
-#         if ('insert' or 'delete' or 'update' in sql.lower()) or commit:
-#             commit = True
-#         else:
-#             commit = False         
+        # if ('insert' or 'delete' or 'update' in sql.lower()) or commit:
+        #     commit = True
+        # else:
+        #     commit = False         
         try:
             self.connect()
             self.cursor = self.connection.cursor()
@@ -138,7 +156,6 @@ class Oracle:
             self.disconnect()
             
 class User(object):
-    """docstring for Users"""
     
     def __init__(self):
         None
@@ -193,68 +210,95 @@ class User(object):
         return sql
          
 class Table(object):
-    """docstring for Tables"""
-    # def __init__(self, arg):
-    #     super(Tables, self).__init__()
-    #     self.arg = arg
     def field(self, tablename, owner):
         # Query all columns of the table
-        sql = '''select column_name from all_tab_columns \
-            where table_name = :1 and owner = :2'''
+        sql = """select column_name from all_tab_columns \
+            where table_name = :1 and owner = :2"""
         results = Oracle().select(sql, (tablename, owner))
-        #results = [row[0]  for row in results]
+
         return results
         
     def primarykey(self, tablename, owner):
         # Query primary key of the table
-        sql = '''select col.column_name  from all_constraints con, \
+        sql = """select col.column_name  from all_constraints con, \
             all_cons_columns col where con.constraint_name = col.constraint_name \
             and con.constraint_type='P' and col.table_name = :1 \
-            and col.owner = :2 and con.owner=col.owner'''
+            and col.owner = :2 and con.owner=col.owner"""
         results = Oracle().select(sql, (tablename, owner))
         return results
     
-    def tables(self, sql, bindvars=''):
-        results = Oracle().select(sql, bindvars)
+    def tables(self):
+        sql =  """SELECT * FROM ALL_TABLES"""
+        results = Oracle().select(sql)
+
         return results
         
-    def select(self, sql, bindvars=''):
-        results = Oracle().select(sql, bindvars)
+    def select(self, tablename, fields=None):
+        sql = """select {0} from {1}"""
+
+        if fields is not None:
+            fields = ','.join(fields)
+            sql = sql.format(fields, tablename)
+        else:
+            sql = sql.format('*', tablename)
+
+        results = Oracle().select(sql)
         return results
     
-    def update(self, sql, bindvars='', commit=True):
-        helpdocs = """Usage: UPDATE {tablename} SET {field_name}={new value} WHERE {key field}={value}"""
-        Oracle().execute(sql, bindvars)
+    def update(self, sql, bindvars=''):
+        """Usage: UPDATE {tablename} SET {field_name}={new value} WHERE {key field}={value}"""
+        Oracle().execute(sql, bindvars, commit=True)
         
-    def delete(self, sql, bindvars='', commit=True):
-        helpdocs = """Usage: DELETE FROM {tablename} WHERE {key field}={value}"""
+    def delete(self, table_name, primary_key):
+        """Usage: DELETE FROM {tablename} WHERE {key field}={value}"""
+        sql = """DELETE FROM {0} {1}"""
         Oracle().execute(sql, bindvars)
     
-    def insert(self, sql, bindvars='', commit=True):
-        helpdocs = """Usage: INSERT INTO {tablename} VALUES {(fields...)}"""
-        Oracle().execute(sql, bindvars)
+    def insert(self, sql, bindvars=''):
+        """Usage: INSERT INTO {tablename} VALUES {(fields...)}"""
+        Oracle().execute(sql, bindvars, commit=True)
     
-    def create(self):
-        helpdocs = """Usage: CREATE TABLE {tablename}"""
-        pass
+    def create(self, sql):
+        """Usage: CREATE TABLE {tablename}"""
+        Oracle().execute(sql)
      
-    def drop(self):
-        helpdocs = """Usage: DROP TABLE {tablename}"""
-        pass
+    def drop(self, tablename):
+        """Usage: DROP TABLE {tablename} PURGE"""
+        sql = "DROP TABLE "+tablename+" purge"
+        Oracle().execute(sql)
      
-    def alter(self):
-        helpdocs = """Usage: ALTER TABLE {tablename}"""
+    def alter(self, tablename):
+        """
+        Function: alter
+        Summary: 1.Rename table: ALTER TABLE {old_tablename} RENAME TO {new_tablename};
+                 2.Add one column: ALTER TABLE {tablename} ADD {field_name} {field_type};
+                 3.Add many columns: ALTER TABLE {tablename} ADD ({field1_name} {field1_type},{field2_name} {field2_type},...);
+                 4.Modify column: ALTER TABLE {tablename} MODIFY {field_name} {new_field_type};
+                 5.Modify many columns: ALTER TABLE {tablename} MODIFY ({field1_name} {new_field1_type},{field2_name} {new_field2_type},...);
+                 6.Remove column: ALTER TABLE {tablename} DROP COLUMN {field_name}
+                 7.Rename column: ALTER TABLE {tablename} RENAME COLUMN {field_name} TO {new_field_name}
+        Examples: ...
+        Attributes: 
+            @param (self):InsertHere
+            @param (tablename):InsertHere
+        Returns: InsertHere
+        """
         pass
      
      
 class Tablespace(object):
-    """docstring for Tablespace"""
  
-    def select(self):
-        """ Get tablespace usage
-            Monitor  details of the use of tablespace 
+    def select(self, tablespace_name=None):
         """
-        sql = '''SELECT a.tablespace_name, \
+        Function: select
+        Summary: Get tablespace usage
+            Monitor  details of the use of tablespace
+        Examples: Tablespace().select()
+        Attributes: 
+            @param (self):InsertHere
+        Returns: size and percent of total_mb,used_mb,free_mb of all tablespaces
+        """
+        sql = """SELECT a.tablespace_name, \
             a.bytes/(1024*1024) total_mb, \
             b.bytes/(1024*1024) used_mb, \
             c.bytes/1024/1024 free_mb, \
@@ -262,8 +306,9 @@ class Tablespace(object):
             round((c.bytes * 100) / a.bytes,2) free_pct \
             FROM sys.sm$ts_avail a, sys.sm$ts_used b, sys.sm$ts_free c \
             WHERE a.tablespace_name = b.tablespace_name \
-            AND a.tablespace_name = c.tablespace_name \
-            ORDER BY a.tablespace_name'''
+            AND a.tablespace_name = c.tablespace_name"""
+        if tablespace_name is not None:
+            sql = sql+" a.tablespace_name="+tablespace_name
         results = Oracle().select(sql)
         return results
     
@@ -279,9 +324,9 @@ class Tablespace(object):
 class Datafile(object):
     """docstring for Datafiles"""
     def select(self):
-        sql = '''SELECT file_id,file_name,online_status,tablespace_name, \
+        sql = """SELECT file_id,file_name,online_status,tablespace_name, \
             ROUND(bytes / (1024 * 1024), 2) total_space_mb,autoextensible \
-            FROM dba_data_files'''
+            FROM dba_data_files"""
         results = Oracle().select(sql)
         return results
     
@@ -297,7 +342,7 @@ class Datafile(object):
 class Onlinelog(object):
     """docstring for Onlinelogs"""
     def select(self):
-        sql = '''select * from v$logfile'''
+        sql = """select * from v$logfile"""
         results = Oracle().select(sql)
         return results
     
@@ -325,12 +370,11 @@ class Archivelog(object):
         pass
  
 class Session(object):
-    """docstring for Sessions"""
     def select(self):
-        '''DocStrins: gv$session and v$session both are views in the oracle, 
-        but gv$session shows global rac sessions,including all instance '''
-        sql = ''''select count(*) from gv$session where username is not null \
-            and status='ACTIVE'''
+        """DocStrins: gv$session and v$session both are views in the oracle, 
+        but gv$session shows global rac sessions,including all instance """
+        sql = """select count(*) from gv$session where username is not null \
+            and status='ACTIVE"""
         params = {'status':'ACTIVE'}
         # return [(row[1],row[2]) for row in self.query_sql(sql,params)]
         return {
@@ -349,7 +393,7 @@ class Lock(object):
         pass
  
     def close(self):
-        pass
+        sql = """ALTER SYSTEM KILL SESSION '{0},{1}'"""
 
 class OracleBackup(object):
     script_path = dbconfig.script['scriptpath']

@@ -39,15 +39,19 @@
 # print(ff)
 # 
 
-def hello():
-    ee = 1
-    ff = "I am a boy"+ \
-        "\n, and I am 27 years old"
-    if ee is not None:
-        print(ff+str(ee))
-    return 1
+# def hello():
+#     ee = 1
+#     ff = "I am a boy"+ \
+#         "\n, and I am 27 years old"
+#     if ee is not None:
+#         print(ff+str(ee))
+#     return 1
 
-if __name__ == '__main__':
-    hello()
+# if __name__ == '__main__':
+#     hello()
 
 
+aa = ['abelit','chenying','panpan','raochan']
+aa = ','.join(aa)
+
+print(aa)
