@@ -52,6 +52,9 @@
 
 
 aa = ['abelit','chenying','panpan','raochan']
+aa = []
+bb = 'where nbxh in '
+print(bb+str(tuple(aa)))
 aa = ','.join(aa)
 
 print(aa)

@@ -12,40 +12,34 @@
 
 '''
 
-"""
-Import customized modules
-"""
+# Import customized modules
 from oswatch import logwrite
-from oswatch import texthandler
 from database import oracle
 
-class DBTrigger( object ):
-    """docstring for Trigger"""       
-    def create_datasync_trigger( self, trigger_name, tablesrc, tabledst, ownersrc, ownerdst ):
-        column_pk = oracle.Tables().query_column(tablesrc, ownersrc)['column_pk']
-        column_nm = oracle.Tables().query_column(tablesrc, ownersrc)['column_nm']
+class Trigger(object):
+    """docstring for Trigger"""
+    def create_sync_trigger( self, trigger_name, tablesrc, tabledst, ownersrc, ownerdst ):
+        tablesrc_pk = oracle.Table().primarykey(tablesrc, ownersrc)
+        tablesrc_field = oracle.Table().field(tablesrc, ownersrc)
         # Create trigger sql
-        trigger_text = '''
-        create or replace trigger %s
-        after insert or update or delete on %s
-        for each row
-        begin
-        if deleting then
-        dbms_output.put_line('deleting');
-        delete from %s where %s;
-        end if;
-        if inserting then
-        dbms_output.put_line('inserting');
-        insert into %s
-        values(%s);
-        end if;
-        if updating then
-        dbms_output.put_line('updating');
-        update %s set %s where %s;
-        end if;
-        end %s;
-        '''
-        if len( column_pk ):
+        trigger_sql = """
+            create or replace trigger %s
+            after insert or update or delete on %s
+            for each row
+            begin
+                if deleting then
+                    dbms_output.put_line('deleting');
+                    delete from %s where %s;
+                elsif inserting then
+                    dbms_output.put_line('inserting');
+                    insert into %s values(%s);
+                elsif updating then
+                    dbms_output.put_line('updating');
+                    update %s set %s where %s;
+                end if;
+            end %s;"""
+
+        if len(column_pk):
             str1 = trigger_name
             str2 = ownersrc + '.' + tablesrc
             str3 = ownerdst + '.' + tabledst
@@ -64,22 +58,20 @@ class DBTrigger( object ):
 
             str9 = column_pk[0] + '=:old.' + column_pk[0]
             str10 = trigger_name
-            """ Format trigger sql """
             trigger_sql=texthandler.TextHandler().format_text( trigger_text, str1, str2, str3, str4, str5, str6, str7, str8, str9, str10 )
-            logwrite.LogWrite(logmessage=trigger_sql,loglevel='infoLogger') 
+            logwrite.LogWrite(logmessage=trigger_sql,loglevel='infoLogger')
         else:
-            logwrite.LogWrite( logmessage='No primary key on the table!',loglevel='errorLogger').write_log()
+            logwrite.LogWrite(logmessage='No primary key on the table!',loglevel='errorLogger').write_log()
 
-class DBFunction(object):
+class Function(object):
     pass
 
-class DBProcedure(object):
+class Procedure(object):
     pass
 
-class DBPackage(object):
+class Package(object):
     pass
 
 
 if __name__ == '__main__':
     DBTrigger().create_datasync_trigger( 'syncdata', 'A_BM_XZQH', 'A_BM_XZQH', 'GZGS_GY', 'GZGS_HZ' )
-

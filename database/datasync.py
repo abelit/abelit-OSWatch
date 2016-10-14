@@ -90,8 +90,11 @@ class DataSync(object):
             # Generate  for condition strings
             strings = []
             [strings.append(results[i][0]) for i in range(len(results))]
-            condition = condition + ' WHERE ' + tablesrc_pk[0] + ' IN ' + str(tuple(strings))
-
+            print(strings)
+            print(tuple(strings))
+            print(tablesrc_pk[0][0])
+            condition = condition + ' WHERE ' + tablesrc_pk[0][0] + ' IN ' + str(tuple(strings))
+            
         if results and method == 'merge':                  
             # Using merge sync data
             
@@ -155,7 +158,7 @@ class DataSync(object):
                     "\nSync data successfully between " + ownersrc + '.' + tablesrc + \
                     ' and ' + ownerdst + '.' + tabledst
                 loglevel = 'infoLogger'
-        elif results in None: 
+        elif not results: 
             #results is a variable defined before which returns the diffrent data between tow tables
             logmessage = "No data need to syncthonize between " + ownersrc + '.' + tablesrc + \
                 ' and ' + ownerdst + '.' + tabledst
@@ -175,7 +178,6 @@ class DataCompare(object):
         # Query the diffrence data between two table
         results = oracle.Oracle().select(sql_diff.format('*',ownersrc + '.' + \
             tablesrc, condition, ownerdst + '.' + tabledst, condition))
-
 
 if __name__ == '__main__':
     tablesrc = 'A_BM_XZQH'

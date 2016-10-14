@@ -3,7 +3,7 @@
 @project: __oswatch__
 @modules: database.oracle
 @description:
-    
+
 @created:Sep 22, 2016
 
 @author: abelit
@@ -22,21 +22,20 @@ except ImportError:
     cx_oracle_exists = False
 else:
     cx_oracle_exists = True
-    
+
 # Import customized modules
 from oswatch import logwrite
-# Module dbocnfig in the package of config to configure 
-all information for this project
-from config import dbconfig 
+# Module dbocnfig in the package of config to configure
+from config import dbconfig
 
 
-class Oracle:      
+class Oracle:
     def __init__(self, *args):
         """
         Function: __init__
         Summary: InsertHere
         Examples: InsertHere
-        Attributes: 
+        Attributes:
             @param (self):InsertHere
             @param (*args):InsertHere
             username: oracle user,
@@ -44,7 +43,7 @@ class Oracle:
             mod:  "normal, sysdba, sysoper",defaut is normal,
             host: the oracle database locates
             port: the port listen oracle database service, default is 1521
-            insrance: the service name of the oracle database instance 
+            insrance: the service name of the oracle database instance
         Returns: InsertHere
         """
         self.username = dbconfig.oracle['username']
@@ -59,7 +58,7 @@ class Oracle:
         Function: __connect
         Summary: InsertHere
         Examples: self.__connect()
-        Attributes: 
+        Attributes:
             @param (self):Call __connect metod Oracle.__connect()
         Returns: connection
         """
@@ -72,7 +71,7 @@ class Oracle:
                 should do the trick. If cx_Oracle is installed, make sure ORACLE_HOME \
                 & LD_LIBRARY_PATH is set"""
             logwrite.LogWrite(logmessage=msg, loglevel='errorLogger').write_log()
-    
+
         dsn = cx_Oracle.makedsn(host=self.host, port=self.port, service_name=self.instance)
         try:
             if self.mode == 'sysdba' or self.username == 'sys':
@@ -87,7 +86,7 @@ class Oracle:
             logwrite.LogWrite(logmessage="Connect oracle "+ self.connection.version+ \
                               " successfully!", loglevel='infoLogger').write_log()
         return self.connection
-    
+
     def __disconnect(self):
         try:
             self.cursor.close()
@@ -97,7 +96,7 @@ class Oracle:
         except cx_Oracle.DatabaseError as cx_msg:
             msg = cx_msg
             logwrite.LogWrite(logmessage=msg, loglevel='errorLogger').write_log()
-        
+
     def select(self, sql, bindvars=''):
         """
         Given a valid SELECT statement, return the results from the database
@@ -115,8 +114,8 @@ class Oracle:
             logwrite.LogWrite(logmessage=msg, loglevel='errorLogger').write_log()
         finally:
             self.__disconnect()
-        return results 
-      
+        return results
+
     def execute(self, sql, bindvars='', many=False, commit=False):
         """
         Function: execute
@@ -125,9 +124,9 @@ class Oracle:
             the SQL statement may not be a select.
             bindvars is a dictionary of variables you pass to execute.
         Examples: Oracle().execute(...)
-        Attributes: 
+        Attributes:
             @param (self):class method
-            @param (sql):The sql that will be excuted 
+            @param (sql):The sql that will be excuted
             @param (bindvars) default='': The bind variables of sql
             @param (many) default=False: If set many is True, multiple sql will be excuted at the same time
             @param (commit) default=False: False is not needed commit after excuting sql, but True is needed commit, gernerally DML sql
@@ -136,7 +135,7 @@ class Oracle:
         # if ('insert' or 'delete' or 'update' in sql.lower()) or commit:
         #     commit = True
         # else:
-        #     commit = False         
+        #     commit = False
         try:
             self.connect()
             self.cursor = self.connection.cursor()
@@ -154,19 +153,19 @@ class Oracle:
             else:
                 pass
             self.disconnect()
-            
+
 class User(object):
-    
+
     def __init__(self):
         None
-        
+
     def select(self):
         sql = """select * from dba_users"""
         # Excute sql to query all users from view or table of the dba_users
         results = oracle.Oracle().select(sql)
 
         return results
-    
+
     def create(self, username, password, default_tablespace=None, temporary_tablespace=None):
         sql = """CREATE USER {0} IDENTIFIED BY {1}"""
 
@@ -181,17 +180,17 @@ class User(object):
         sql = sql.format(username, password)
         # Excute sql to create user
         oracle.Oracle().execute(sql)
-        
+
         # logwrite.LogWrite(loglevel='infoLogger', logmessage=sql).write_log()
         return sql
-     
+
     def drop(self, username):
         sql = """DROP USER {0} cascade""".format(username)
         # Excute sql to drop user (parameter 'cascade' will drop it's objects when drop user)
         oracle.Oracle().execute(sql)
 
         return sql
-     
+
     def alter(self, username, password=None, default_tablespace=None, temporary_tablespace=None):
         sql = """ALTER USER {0}"""
         if password is not None:
@@ -202,13 +201,13 @@ class User(object):
 
         if temporary_tablespace is not None:
             sql = sql+"TEMPORARY TABLESPACE "+temporary_tablespace
-        
+
         sql = sql.format(username)
         # Excute sql to alter user's properties
         oracle.Oracle().execute(sql)
 
         return sql
-         
+
 class Table(object):
     def field(self, tablename, owner):
         # Query all columns of the table
@@ -217,7 +216,7 @@ class Table(object):
         results = Oracle().select(sql, (tablename, owner))
 
         return results
-        
+
     def primarykey(self, tablename, owner):
         # Query primary key of the table
         sql = """select col.column_name  from all_constraints con, \
@@ -226,13 +225,13 @@ class Table(object):
             and col.owner = :2 and con.owner=col.owner"""
         results = Oracle().select(sql, (tablename, owner))
         return results
-    
+
     def tables(self):
         sql =  """SELECT * FROM ALL_TABLES"""
         results = Oracle().select(sql)
 
         return results
-        
+
     def select(self, tablename, fields=None):
         sql = """select {0} from {1}"""
 
@@ -244,29 +243,29 @@ class Table(object):
 
         results = Oracle().select(sql)
         return results
-    
+
     def update(self, sql, bindvars=''):
         """Usage: UPDATE {tablename} SET {field_name}={new value} WHERE {key field}={value}"""
         Oracle().execute(sql, bindvars, commit=True)
-        
+
     def delete(self, table_name, primary_key):
         """Usage: DELETE FROM {tablename} WHERE {key field}={value}"""
         sql = """DELETE FROM {0} {1}"""
         Oracle().execute(sql, bindvars)
-    
+
     def insert(self, sql, bindvars=''):
         """Usage: INSERT INTO {tablename} VALUES {(fields...)}"""
         Oracle().execute(sql, bindvars, commit=True)
-    
+
     def create(self, sql):
         """Usage: CREATE TABLE {tablename}"""
         Oracle().execute(sql)
-     
+
     def drop(self, tablename):
         """Usage: DROP TABLE {tablename} PURGE"""
         sql = "DROP TABLE "+tablename+" purge"
         Oracle().execute(sql)
-     
+
     def alter(self, tablename):
         """
         Function: alter
@@ -278,23 +277,23 @@ class Table(object):
                  6.Remove column: ALTER TABLE {tablename} DROP COLUMN {field_name}
                  7.Rename column: ALTER TABLE {tablename} RENAME COLUMN {field_name} TO {new_field_name}
         Examples: ...
-        Attributes: 
+        Attributes:
             @param (self):InsertHere
             @param (tablename):InsertHere
         Returns: InsertHere
         """
         pass
-     
-     
+
+
 class Tablespace(object):
- 
+
     def select(self, tablespace_name=None):
         """
         Function: select
         Summary: Get tablespace usage
             Monitor  details of the use of tablespace
         Examples: Tablespace().select()
-        Attributes: 
+        Attributes:
             @param (self):InsertHere
         Returns: size and percent of total_mb,used_mb,free_mb of all tablespaces
         """
@@ -311,13 +310,13 @@ class Tablespace(object):
             sql = sql+" a.tablespace_name="+tablespace_name
         results = Oracle().select(sql)
         return results
-    
+
     def create(self):
         pass
- 
+
     def drop(self):
         pass
- 
+
     def alter(self):
         pass
 
@@ -329,49 +328,49 @@ class Datafile(object):
             FROM dba_data_files"""
         results = Oracle().select(sql)
         return results
-    
+
     def create(self):
         pass
- 
+
     def drop(self):
         pass
-         
+
     def alter(self):
         pass
- 
+
 class Onlinelog(object):
     """docstring for Onlinelogs"""
     def select(self):
         sql = """select * from v$logfile"""
         results = Oracle().select(sql)
         return results
-    
+
     def create(self):
         pass
- 
+
     def drop(self):
         pass
- 
+
     def alter(self):
         pass
-         
+
 class Archivelog(object):
     """docstring for Archivelogs"""
     def select(self):
         pass
- 
+
     def create(self):
         pass
- 
+
     def drop(self):
         pass
- 
+
     def alter(self):
         pass
- 
+
 class Session(object):
     def select(self):
-        """DocStrins: gv$session and v$session both are views in the oracle, 
+        """DocStrins: gv$session and v$session both are views in the oracle,
         but gv$session shows global rac sessions,including all instance """
         sql = """select count(*) from gv$session where username is not null \
             and status='ACTIVE"""
@@ -381,23 +380,23 @@ class Session(object):
             'session_counts':len(self.query_sql(sql, params)),
             'session_sid_serial':[(row[1], row[2]) for row in self.query_sql(sql, params)]
         }
- 
+
     def close(self):
         pass
- 
-         
- 
+
+
+
 class Lock(object):
-    """docstring for Locks"""    
+    """docstring for Locks"""
     def select(self):
         pass
- 
+
     def close(self):
         sql = """ALTER SYSTEM KILL SESSION '{0},{1}'"""
 
 class OracleBackup(object):
     script_path = dbconfig.script['scriptpath']
-    
+
     from_users = dbconfig.backup['from_users']
     from_tables = dbconfig.backup['from_tables']
     from_tablespaces = dbconfig.backup['from_tables']
@@ -412,41 +411,41 @@ class OracleBackup(object):
             backup_user=dbconfig.backup['exp']['backup_user']):
 
         loglevel = 'infoLogger'
-        
+
         if backup_type.lower() == 'byuser':
             for i in self.from_users:
                 text = 'exp {0} owner={1} file={2} log={3} {4}'.format(\
                     backup_user, i, backup_path+'/'+i+'_exp_imp_byuser_'+ \
                     datetime.datetime.now().strftime('%Y%m%d') + '.dmp',backup_path + '/' + \
                     i+'_exp_byuser_'+datetime.datetime.now().strftime('%Y%m%d')+'.log', \
-                    backup_parameter)   
+                    backup_parameter)
         elif backup_type.lower() == 'bytable':
             for i in self.from_users:
                 for k in self.from_tables:
-                    text = "exp {0} table={1} file={2} log={3} {4}".format(\
+                    text = "exp {0} tables={1} file={2} log={3} {4}".format(\
                         backup_user, i + '.' + k, backup_path + '/' + i + \
                         '.' + k + '_exp_imp_bytable_' + datetime.datetime.now().strftime('%Y%m%d') + \
                         '.dmp',backup_path + '/' + i + '.' + k + '_exp_bytable_' + \
                         datetime.datetime.now().strftime('%Y%m%d') + '.log', backup_parameter)
         elif backup_type.lower() == 'byfull':
             text = "exp {0} full=y file={1} log={2} {3}".format(backup_user,
-                backup_path + '/' + dbconfig.oracle['instance'] + '_exp_imp_byfull_' + 
+                backup_path + '/' + dbconfig.oracle['instance'] + '_exp_imp_byfull_' +
                 datetime.datetime.now().strftime('%Y%m%d') + '.dmp',
-                backup_path + '/' + dbconfig.oracle['instance'] + '_exp_byfull_' + 
-                datetime.datetime.now().strftime('%Y%m%d') + '.log', backup_parameter)   
+                backup_path + '/' + dbconfig.oracle['instance'] + '_exp_byfull_' +
+                datetime.datetime.now().strftime('%Y%m%d') + '.log', backup_parameter)
         else:
             text = "Please asign the type of backup. Such as byuser|bytable|byfull."
             loglevel = 'warnLogger'
-       
+
         logwrite.LogWrite(logmessage=text, loglevel=loglevel).write_log()
-                
+
     def expdp(self, backup_type=dbconfig.backup['expdp']['backup_type'], \
             backup_parameter=dbconfig.backup['expdp']['backup_parameter'], \
             backup_path=dbconfig.backup['expdp']['backup_path'], \
             backup_user=dbconfig.backup['expdp']['backup_user']):
-        
+
         loglevel = 'infoLogger'
-        
+
         if backup_type.lower() == 'byuser':
             for i in self.from_users:
                 text = "expdp {0} schemas={1} directory={2} dumpfile={3} logfile={4} {5}".format(\
@@ -476,14 +475,14 @@ class OracleBackup(object):
                 dbconfig.oracle['instance'] + '_expdp_byfull_' + \
                 datetime.datetime.now().strftime('%Y%m%d') + '.log', backup_parameter)
         else:
-            text = "Please asign the type to backup data.Such as byuser|bytable|bytablespace|byfull."   
+            text = "Please asign the type to backup data.Such as byuser|bytable|bytablespace|byfull."
             loglevel = 'warnLogger'
-        
+
         logwrite.LogWrite(logmessage=text, loglevel=loglevel).write_log()
-        
+
 class OracleRecovery(object):
     script_path = dbconfig.script['scriptpath']
-    
+
     from_users = dbconfig.backup['from_users']
     from_tables = dbconfig.backup['from_tables']
     from_tablespaces = dbconfig.backup['from_tables']
@@ -491,12 +490,12 @@ class OracleRecovery(object):
     to_users = dbconfig.backup['to_users']
     to_tables = dbconfig.backup['to_tables']
     to_tablespaces = dbconfig.backup['to_tablespaces']
-    
+
     def imp(self, restore_type=dbconfig.backup['imp']['restore_type'], \
             restore_parameter=dbconfig.backup['imp']['restore_parameter'], \
             restore_path=dbconfig.backup['imp']['restore_path'], \
             restore_user=dbconfig.backup['imp']['restore_user']):
-        
+
         loglevel = 'infoLogger'
 
         if restore_type.lower() == 'byuser':
@@ -523,7 +522,7 @@ class OracleRecovery(object):
         else:
             text = "Please asign the type of import data.Like byuser|bytable|byfull."
             loglevel = 'warnLogger'
-                
+
         logwrite.LogWrite(logmessage=text, loglevel=loglevel).write_log()
 
     def impdp(self, restore_type=dbconfig.backup['impdp']['restore_type'], \
@@ -540,14 +539,14 @@ class OracleRecovery(object):
                     datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',i + '_impdp_byuser_' + \
                     datetime.datetime.now().strftime('%Y%m%d') + '.log', restore_parameter)
         elif restore_type.lower() == 'bytable':
-            for (i , j) in zip(self.from_users, self.to_users): 
+            for (i , j) in zip(self.from_users, self.to_users):
                 for (k, m) in zip(self.from_tables, self.to_tables):
                     text = "impdp {0} tables={1} remap_schemma={2} directory={3} dumpfile={4} logfile={5}  {6}".format(\
                         restore_user, k, i + ':' + j, restore_path, i + '.' + k + '_expdp_impdp_bytable_' + \
                         datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',i + '.' + k + \
                         '_impdp_bytable_' + datetime.datetime.now().strftime('%Y%m%d') + '.log', restore_parameter)
         elif restore_type.lower() == 'bytablespace':
-            for (i , j) in zip(self.from_users, self.to_users): 
+            for (i , j) in zip(self.from_users, self.to_users):
                 for (k, m) in zip(self.from_tablespaces, self.to_tablespaces):
                     text = "impdp {0} remap_schemma={1} remap_tablespace={2} directory={3} dumpfile={4} logfile={5}  {6}".format(\
                         restore_user, i + ':' + j, k + ':' + m, restore_path, k + '_expdp_impdp_bytablespace_' + \
@@ -572,6 +571,3 @@ if __name__ == '__main__':
         print("yes")
     else:
         print("no")
-        
-    
-    
