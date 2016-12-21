@@ -566,8 +566,8 @@ class OracleRecovery(object):
 
 
 if __name__ == '__main__':
-    # print(OracleBackup().expdp(backup_type='bytablespace'))
-    # if Table().fieldname('A_QYMC', 'GZGS_HZ') == Table().fieldname('A_QYMC', 'GZGS_GY'):
-    #     print("yes")
-    # else:
-    #     print("no")
+    print(OracleBackup().expdp(backup_type='bytablespace'))
+    if Table().fieldname('A_QYMC', 'GZGS_HZ') == Table().fieldname('A_QYMC', 'GZGS_GY'):
+        print("yes")
+    else:
+        print("no")

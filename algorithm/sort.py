@@ -32,8 +32,9 @@ def selectionSort(alist):
     alist[i] = alist[maxone]
     alist[maxone] = temp 
   return alist
- 
+
 alist = [54,26,93,17,77,31,44,55,20]
-print(bubbleSort(alist))
-alist = [54,26,93,17,77,31,44,55,20]
-print(selectionSort(alist))
+
+print("The data before sorting:\n",alist)
+print("The data of using bubble sort:\n",bubbleSort(alist))
+print("The data of using select sort:\n",selectionSort(alist))

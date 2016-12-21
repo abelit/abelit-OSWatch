@@ -1,16 +1,5 @@
 eclipse.preferences.version=1
 encoding//algorithm/sort.py=utf-8
 encoding//config/dbconfig.py=utf-8
-encoding//database/datasync.py=utf-8
-encoding//database/logminer.py=utf-8
 encoding//database/oracle.py=utf-8
-encoding//database/plsql.py=utf-8
-encoding//gzgs/gzgsinfo.py=utf-8
-encoding//network/proxy.py=utf-8
-encoding//oswatch/email.py=cp936
-encoding//oswatch/env.py=utf-8
-encoding//oswatch/logwrite.py=utf-8
 encoding//oswatch/pathget.py=utf-8
-encoding//scripts/backup.py=utf-8
-encoding//server/osinfo.py=utf-8
-encoding/env.py=utf-8
