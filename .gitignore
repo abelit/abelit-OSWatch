@@ -1,4 +1,5 @@
 __pycache__
-config/*.py
-dbconfig.py
 logs/*.log
+.project
+.settings
+.pydevproject
