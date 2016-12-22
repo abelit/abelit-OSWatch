@@ -20,7 +20,7 @@ from genericpath import isfile
 PROJECT_NAME = '__oswatch__.py'
 
 # Get fullpath of the file.
-def get_filepath(filename):
+def get_fullpath(filename):
     # Get the separator sign of the os, such as '/' in linux/unix or '\' in windows
     separator = os.sep
     path = os.getcwd()
@@ -41,16 +41,18 @@ def work_allpath(path):
             allpath.append(fullpath)
     return allpath
 
+def add_envpath(path):
     # Add package folder to searching path
-    path = get_filepath(PROJECT_NAME)
     # Search the dir that contains file '__init__.py'
-    package_path = []
     for dirname in work_allpath(path):
         if isfile(dirname+os.sep+'__init__.py') and dirname not in sys.path:
-           sys.path.append(dirname)
-    print(sys.path)
+            sys.path.append(dirname) 
 
-    
-    
+if __name__ == '__main__':
+    print(get_fullpath(PROJECT_NAME))
+    print(work_allpath(get_fullpath(PROJECT_NAME)))
+    add_envpath(get_fullpath(PROJECT_NAME))
+    print(sys.path)  
+
     
     

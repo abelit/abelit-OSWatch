@@ -26,7 +26,7 @@ else:
 # Import customized modules
 from oswatch import logwrite
 # Module dbocnfig in the package of config to configure
-from config import dbconfig
+from config import config
 
 
 class Oracle:
@@ -42,16 +42,16 @@ class Oracle:
             password: oracle user's password,
             mod:  "normal, sysdba, sysoper",defaut is normal,
             host: the oracle database locates
-            port: the port listen oracle database service, default is 1521
+            port: the port listen oracle database service, config is 1521
             insrance: the service name of the oracle database instance
         Returns: InsertHere
         """
-        self.username = dbconfig.oracle['username']
-        self.password = dbconfig.oracle['password']
-        self.mode     = dbconfig.oracle['mode']
-        self.host     = dbconfig.oracle['host']
-        self.port     = dbconfig.oracle['port']
-        self.instance = dbconfig.oracle['instance']
+        self.username = config.oracle['username']
+        self.password = config.oracle['password']
+        self.mode     = config.oracle['mode']
+        self.host     = config.oracle['host']
+        self.port     = config.oracle['port']
+        self.instance = config.oracle['instance']
 
     def __connect(self):
         """
@@ -63,7 +63,7 @@ class Oracle:
         Returns: connection
         """
         # Set lang environment
-        NLS_LANG = dbconfig.oracle['NLS_LANG']
+        NLS_LANG = config.oracle['NLS_LANG']
         os.environ['NLS_LANG'] = NLS_LANG
 
         if not cx_oracle_exists:
@@ -127,9 +127,9 @@ class Oracle:
         Attributes:
             @param (self):class method
             @param (sql):The sql that will be excuted
-            @param (bindvars) default='': The bind variables of sql
-            @param (many) default=False: If set many is True, multiple sql will be excuted at the same time
-            @param (commit) default=False: False is not needed commit after excuting sql, but True is needed commit, gernerally DML sql
+            @param (bindvars) config='': The bind variables of sql
+            @param (many) config=False: If set many is True, multiple sql will be excuted at the same time
+            @param (commit) config=False: False is not needed commit after excuting sql, but True is needed commit, gernerally DML sql
         Returns: NO value will be returned
         """
         # if ('insert' or 'delete' or 'update' in sql.lower()) or commit:
@@ -169,11 +169,11 @@ class User(object):
     def create(self, username, password, default_tablespace=None, temporary_tablespace=None):
         sql = """CREATE USER {0} IDENTIFIED BY {1}"""
 
-        # Create default tablespace if needs when create user, and default tablespace is user if no tablespace to be assigned
+        # Create config tablespace if needs when create user, and config tablespace is user if no tablespace to be assigned
         if default_tablespace is not None:
             sql = sql+" DEFAULT TABLESPACE "+default_tablespace
 
-        # Create temporary tablespace if needs when create user, and default temporary tablespace is temp if no tablespace to be assigned
+        # Create temporary tablespace if needs when create user, and config temporary tablespace is temp if no tablespace to be assigned
         if temporary_tablespace is not None:
             sql = sql+" TEMPORARY TABLESPACE "+temporary_tablespace
 
@@ -395,20 +395,20 @@ class Lock(object):
         sql = """ALTER SYSTEM KILL SESSION '{0},{1}'"""
 
 class OracleBackup(object):
-    script_path = dbconfig.script['scriptpath']
+    script_path = config.script['scriptpath']
 
-    from_users = dbconfig.backup['from_users']
-    from_tables = dbconfig.backup['from_tables']
-    from_tablespaces = dbconfig.backup['from_tables']
+    from_users = config.backup['from_users']
+    from_tables = config.backup['from_tables']
+    from_tablespaces = config.backup['from_tables']
 
-    to_users = dbconfig.backup['to_users']
-    to_tables = dbconfig.backup['to_tables']
-    to_tablespaces = dbconfig.backup['to_tablespaces']
+    to_users = config.backup['to_users']
+    to_tables = config.backup['to_tables']
+    to_tablespaces = config.backup['to_tablespaces']
 
-    def exp(self, backup_type=dbconfig.backup['exp']['backup_type'], \
-            backup_parameter=dbconfig.backup['exp']['backup_parameter'], \
-            backup_path=dbconfig.backup['exp']['backup_path'], \
-            backup_user=dbconfig.backup['exp']['backup_user']):
+    def exp(self, backup_type=config.backup['exp']['backup_type'], \
+            backup_parameter=config.backup['exp']['backup_parameter'], \
+            backup_path=config.backup['exp']['backup_path'], \
+            backup_user=config.backup['exp']['backup_user']):
 
         loglevel = 'infoLogger'
 
@@ -429,9 +429,9 @@ class OracleBackup(object):
                         datetime.datetime.now().strftime('%Y%m%d') + '.log', backup_parameter)
         elif backup_type.lower() == 'byfull':
             text = "exp {0} full=y file={1} log={2} {3}".format(backup_user,
-                backup_path + '/' + dbconfig.oracle['instance'] + '_exp_imp_byfull_' +
+                backup_path + '/' + config.oracle['instance'] + '_exp_imp_byfull_' +
                 datetime.datetime.now().strftime('%Y%m%d') + '.dmp',
-                backup_path + '/' + dbconfig.oracle['instance'] + '_exp_byfull_' +
+                backup_path + '/' + config.oracle['instance'] + '_exp_byfull_' +
                 datetime.datetime.now().strftime('%Y%m%d') + '.log', backup_parameter)
         else:
             text = "Please asign the type of backup. Such as byuser|bytable|byfull."
@@ -439,10 +439,10 @@ class OracleBackup(object):
 
         logwrite.LogWrite(logmessage=text, loglevel=loglevel).write_log()
 
-    def expdp(self, backup_type=dbconfig.backup['expdp']['backup_type'], \
-            backup_parameter=dbconfig.backup['expdp']['backup_parameter'], \
-            backup_path=dbconfig.backup['expdp']['backup_path'], \
-            backup_user=dbconfig.backup['expdp']['backup_user']):
+    def expdp(self, backup_type=config.backup['expdp']['backup_type'], \
+            backup_parameter=config.backup['expdp']['backup_parameter'], \
+            backup_path=config.backup['expdp']['backup_path'], \
+            backup_user=config.backup['expdp']['backup_user']):
 
         loglevel = 'infoLogger'
 
@@ -470,9 +470,9 @@ class OracleBackup(object):
                     backup_parameter)
         elif backup_type.lower() == 'byfull':
             text = "expdp {0} full=y directory={1} dumpfile={2} logfile={3} {4}".format(\
-                backup_user, backup_path, dbconfig.oracle['instance'] + '_expdp_impdp_byfull_' + \
+                backup_user, backup_path, config.oracle['instance'] + '_expdp_impdp_byfull_' + \
                 datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',\
-                dbconfig.oracle['instance'] + '_expdp_byfull_' + \
+                config.oracle['instance'] + '_expdp_byfull_' + \
                 datetime.datetime.now().strftime('%Y%m%d') + '.log', backup_parameter)
         else:
             text = "Please asign the type to backup data.Such as byuser|bytable|bytablespace|byfull."
@@ -481,20 +481,20 @@ class OracleBackup(object):
         logwrite.LogWrite(logmessage=text, loglevel=loglevel).write_log()
 
 class OracleRecovery(object):
-    script_path = dbconfig.script['scriptpath']
+    script_path = config.script['scriptpath']
 
-    from_users = dbconfig.backup['from_users']
-    from_tables = dbconfig.backup['from_tables']
-    from_tablespaces = dbconfig.backup['from_tables']
+    from_users = config.backup['from_users']
+    from_tables = config.backup['from_tables']
+    from_tablespaces = config.backup['from_tables']
 
-    to_users = dbconfig.backup['to_users']
-    to_tables = dbconfig.backup['to_tables']
-    to_tablespaces = dbconfig.backup['to_tablespaces']
+    to_users = config.backup['to_users']
+    to_tables = config.backup['to_tables']
+    to_tablespaces = config.backup['to_tablespaces']
 
-    def imp(self, restore_type=dbconfig.backup['imp']['restore_type'], \
-            restore_parameter=dbconfig.backup['imp']['restore_parameter'], \
-            restore_path=dbconfig.backup['imp']['restore_path'], \
-            restore_user=dbconfig.backup['imp']['restore_user']):
+    def imp(self, restore_type=config.backup['imp']['restore_type'], \
+            restore_parameter=config.backup['imp']['restore_parameter'], \
+            restore_path=config.backup['imp']['restore_path'], \
+            restore_user=config.backup['imp']['restore_user']):
 
         loglevel = 'infoLogger'
 
@@ -515,9 +515,9 @@ class OracleRecovery(object):
                         datetime.datetime.now().strftime('%Y%m%d') + '.log', restore_parameter)
         elif restore_type.lower() == 'byfull':
             text = "imp {0} full=y file={1} log={2} ignore=y".format(\
-                restore_user,restore_path + '/' + dbconfig.oracle['instance'] + '_exp_imp_byfull_' + \
+                restore_user,restore_path + '/' + config.oracle['instance'] + '_exp_imp_byfull_' + \
                 datetime.datetime.now().strftime('%Y%m%d') + '.dmp',restore_path + '/' + \
-                dbconfig.oracle['instance'] + '_imp_byfull_' + \
+                config.oracle['instance'] + '_imp_byfull_' + \
                 datetime.datetime.now().strftime('%Y%m%d') + '.log')
         else:
             text = "Please asign the type of import data.Like byuser|bytable|byfull."
@@ -525,10 +525,10 @@ class OracleRecovery(object):
 
         logwrite.LogWrite(logmessage=text, loglevel=loglevel).write_log()
 
-    def impdp(self, restore_type=dbconfig.backup['impdp']['restore_type'], \
-            restore_parameter=dbconfig.backup['impdp']['restore_parameter'], \
-            restore_path=dbconfig.backup['impdp']['restore_path'], \
-            restore_user=dbconfig.backup['impdp']['restore_user']):
+    def impdp(self, restore_type=config.backup['impdp']['restore_type'], \
+            restore_parameter=config.backup['impdp']['restore_parameter'], \
+            restore_path=config.backup['impdp']['restore_path'], \
+            restore_user=config.backup['impdp']['restore_user']):
 
         loglevel = 'infoLogger'
 
@@ -554,9 +554,9 @@ class OracleRecovery(object):
                         datetime.datetime.now().strftime('%Y%m%d') + '.log', restore_parameter)
         elif restore_type.lower() == 'byfull':
             text = "impdp {0} full=y directory={1} dumpfile={2} logfile={3}  {4}".format(\
-                restore_user, restore_path, dbconfig.oracle['instance'] + \
+                restore_user, restore_path, config.oracle['instance'] + \
                 '_expdp_impdp_byfull_' + datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',\
-                dbconfig.oracle['instance'] + '_impdp_byfull_' + \
+                config.oracle['instance'] + '_impdp_byfull_' + \
                 datetime.datetime.now().strftime('%Y%m%d') + '.log', restore_parameter)
         else:
             text = "Please asign the type to import data.Like byuser|bytable|bytablespace|byfull."

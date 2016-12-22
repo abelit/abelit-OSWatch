@@ -5,9 +5,9 @@ Created on Dec 21, 2016
 '''
 
 from oswatch import pathget
-from config import dbconfig
+from config import config
 
 if __name__ == '__main__':
-    filepath = pathget.get_filepath("test.py")
-    print(filepath)
-
+    string = "C:\Users\Abelit\Documents\workspace\abelit-OSWatch/config"
+    string = string.split("\\")
+    print(string)
