@@ -71,7 +71,7 @@ log = {
 
 # Store sql or shell scripts
 script = {
-    'scriptpath':project_path + '/script'
+    'scriptpath':project_path + os.sep +'script'
 }
 
 # Assign the directory for storing data pump
