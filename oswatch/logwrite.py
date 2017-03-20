@@ -24,7 +24,7 @@ from config import config
 
 class LogWrite:
     """docstring for LogWrite"""
-    def __init__(self, loglevel='debugLogger', logmessage='', logpath=config.log['logpath'],logconf=config.log['logconf']):
+    def __init__(self, loglevel='debugLogger', logmessage='', logpath=config.log['logpath'],logconf=config.config_path['logconf']):
         super(LogWrite, self).__init__()
         self.logpath=logpath
         self.loglevel=loglevel

@@ -25,6 +25,7 @@ else:
 
 # Import customized modules
 from oswatch import logwrite
+
 # Module dbocnfig in the package of config to configure
 from config import config
 
@@ -162,7 +163,7 @@ class User(object):
     def select(self):
         sql = """select * from dba_users"""
         # Excute sql to query all users from view or table of the dba_users
-        results = oracle.Oracle().select(sql)
+        results = Oracle().select(sql)
 
         return results
 
@@ -179,7 +180,7 @@ class User(object):
 
         sql = sql.format(username, password)
         # Excute sql to create user
-        oracle.Oracle().execute(sql)
+        Oracle().execute(sql)
 
         # logwrite.LogWrite(loglevel='infoLogger', logmessage=sql).write_log()
         return sql
@@ -187,7 +188,7 @@ class User(object):
     def drop(self, username):
         sql = """DROP USER {0} cascade""".format(username)
         # Excute sql to drop user (parameter 'cascade' will drop it's objects when drop user)
-        oracle.Oracle().execute(sql)
+        Oracle().execute(sql)
 
         return sql
 
@@ -204,7 +205,7 @@ class User(object):
 
         sql = sql.format(username)
         # Excute sql to alter user's properties
-        oracle.Oracle().execute(sql)
+        Oracle().execute(sql)
 
         return sql
 
@@ -251,7 +252,7 @@ class Table(object):
     def delete(self, table_name, primary_key):
         """Usage: DELETE FROM {tablename} WHERE {key field}={value}"""
         sql = """DELETE FROM {0} {1}"""
-        Oracle().execute(sql, bindvars)
+        Oracle().execute(sql)
 
     def insert(self, sql, bindvars=''):
         """Usage: INSERT INTO {tablename} VALUES {(fields...)}"""
@@ -382,9 +383,8 @@ class Session(object):
         }
 
     def close(self):
+        #sql = """ALTER SYSTEM KILL SESSION '{0},{1}'"""
         pass
-
-
 
 class Lock(object):
     """docstring for Locks"""
@@ -392,90 +392,80 @@ class Lock(object):
         pass
 
     def close(self):
-        sql = """ALTER SYSTEM KILL SESSION '{0},{1}'"""
+        pass
 
 class OracleBackup(object):
-    script_path = config.script['scriptpath']
-
-    from_users = config.backup['from_users']
-    from_tables = config.backup['from_tables']
-    from_tablespaces = config.backup['from_tables']
-
-    to_users = config.backup['to_users']
-    to_tables = config.backup['to_tables']
-    to_tablespaces = config.backup['to_tablespaces']
-
-    def exp(self, backup_type=config.backup['exp']['backup_type'], \
-            backup_parameter=config.backup['exp']['backup_parameter'], \
-            backup_path=config.backup['exp']['backup_path'], \
-            backup_user=config.backup['exp']['backup_user']):
+    def exp(self, backup_user=config.backup['exp']['backup_user'], \
+            exp_type=config.backup['exp']['exp_type'], \
+            exp_parameter=config.backup['exp']['exp_parameter'], \
+            exp_path=config.backup['exp']['exp_path'], \
+            exp_table=config.backup['exp']['exp_table'], \
+            exp_user=config.backup['exp']['exp_user']):
 
         loglevel = 'infoLogger'
-
-        if backup_type.lower() == 'byuser':
-            for i in self.from_users:
-                text = 'exp {0} owner={1} file={2} log={3} {4}'.format(\
-                    backup_user, i, backup_path+'/'+i+'_exp_imp_byuser_'+ \
-                    datetime.datetime.now().strftime('%Y%m%d') + '.dmp',backup_path + '/' + \
-                    i+'_exp_byuser_'+datetime.datetime.now().strftime('%Y%m%d')+'.log', \
-                    backup_parameter)
-        elif backup_type.lower() == 'bytable':
-            for i in self.from_users:
-                for k in self.from_tables:
-                    text = "exp {0} tables={1} file={2} log={3} {4}".format(\
-                        backup_user, i + '.' + k, backup_path + '/' + i + \
-                        '.' + k + '_exp_imp_bytable_' + datetime.datetime.now().strftime('%Y%m%d') + \
-                        '.dmp',backup_path + '/' + i + '.' + k + '_exp_bytable_' + \
-                        datetime.datetime.now().strftime('%Y%m%d') + '.log', backup_parameter)
-        elif backup_type.lower() == 'byfull':
-            text = "exp {0} full=y file={1} log={2} {3}".format(backup_user,
-                backup_path + '/' + config.oracle['instance'] + '_exp_imp_byfull_' +
+        text     = 'No exp sql assigned here!'
+        
+        if exp_type.lower() == 'byuser':
+            text = 'exp {0} owner={1} file={2} log={3} {4}'.format(\
+                backup_user, exp_user, exp_path+'/'+exp_user+'_exp_imp_byuser_'+ \
+                datetime.datetime.now().strftime('%Y%m%d') + '.dmp',exp_path + '/' + \
+                exp_user+'_exp_byuser_'+datetime.datetime.now().strftime('%Y%m%d')+'.log', \
+                exp_parameter)
+        elif exp_type.lower() == 'bytable':
+            text = "exp {0} tables={1} file={2} log={3} {4}".format(\
+                backup_user, exp_user + '.' + exp_table, exp_path + '/' + exp_user + \
+                '.' + exp_table + '_exp_imp_bytable_' + datetime.datetime.now().strftime('%Y%m%d') + \
+                '.dmp',exp_path + '/' + exp_user + '.' + exp_table + '_exp_bytable_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '.log', exp_parameter)
+        elif exp_type.lower() == 'byfull':
+            text = "exp {0} full=y file={1} log={2} {3}".format(\
+                backup_user,exp_path + '/' + config.oracle['instance'] + '_exp_imp_byfull_' +
                 datetime.datetime.now().strftime('%Y%m%d') + '.dmp',
-                backup_path + '/' + config.oracle['instance'] + '_exp_byfull_' +
-                datetime.datetime.now().strftime('%Y%m%d') + '.log', backup_parameter)
+                exp_path + '/' + config.oracle['instance'] + '_exp_byfull_' +
+                datetime.datetime.now().strftime('%Y%m%d') + '.log', exp_parameter)
         else:
-            text = "Please asign the type of backup. Such as byuser|bytable|byfull."
+            text = "Please asign the type of exp. Such as byuser|bytable|byfull."
             loglevel = 'warnLogger'
 
         logwrite.LogWrite(logmessage=text, loglevel=loglevel).write_log()
 
-    def expdp(self, backup_type=config.backup['expdp']['backup_type'], \
-            backup_parameter=config.backup['expdp']['backup_parameter'], \
-            backup_path=config.backup['expdp']['backup_path'], \
-            backup_user=config.backup['expdp']['backup_user']):
+    def expdp(self, backup_user=config.backup['expdp']['backup_user'], \
+            expdp_type=config.backup['expdp']['expdp_type'], \
+            expdp_parameter=config.backup['expdp']['expdp_parameter'], \
+            expdp_path=config.backup['expdp']['expdp_path'], \
+            expdp_table=config.backup['expdp']['expdp_table'], \
+            expdp_schema=config.backup['expdp']['expdp_schema'], \
+            expdp_tablespace=config.backup['expdp']['expdp_tablespace']):
 
         loglevel = 'infoLogger'
-
-        if backup_type.lower() == 'byuser':
-            for i in self.from_users:
-                text = "expdp {0} schemas={1} directory={2} dumpfile={3} logfile={4} {5}".format(\
-                    backup_user, i, backup_path, i + '_expdp_impdp_byuser_' + \
-                    datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',\
-                    i + '_expdp_byuser_' + datetime.datetime.now().strftime('%Y%m%d') + '.log', \
-                    backup_parameter)
-        elif backup_type.lower() == 'bytable':
-            for i in self.from_users:
-                for k in self.from_tables:
-                    text = "expdp {0} tables={1} directory={2} dumpfile={3} logfile={4} {5}".format(\
-                        backup_user, i + '.' + k, backup_path, i + '.' + k + '_expdp_impdp_bytable_' + \
-                        datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',\
-                        i + '.' + k + '_expdp_bytable_' + datetime.datetime.now().strftime('%Y%m%d') + '.log', \
-                        backup_parameter)
-        elif backup_type.lower() == 'bytablespace':
-            for i in self.from_tablespaces:
-                text = "expdp {0} tablespaces={1} directory={2} dumpfile={3} logfile={4} {5}".format(\
-                    backup_user, i, backup_path, i + '_expdp_impdp_bytablespace_' + \
-                    datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',\
-                    i + '_expdp_bytablespace_' + datetime.datetime.now().strftime('%Y%m%d') + '.log', \
-                    backup_parameter)
-        elif backup_type.lower() == 'byfull':
+        text     = 'No expdp sql assigned here!'
+        
+        if expdp_type.lower() == 'byschema':
+            text = "expdp {0} schemas={1} directory={2} dumpfile={3} logfile={4} {5}".format(\
+                backup_user, expdp_schema, expdp_path, expdp_schema + '_expdp_impdp_byschema_' + \
+                datetime.datetime.now().strftime('%Y%m%d%H') + '_%U.dmp',\
+                expdp_schema + '_expdp_byschema_' + datetime.datetime.now().strftime('%Y%m%d%H') + '.log', \
+                expdp_parameter)
+        elif expdp_type.lower() == 'bytable':
+            text = "expdp {0} tables={1} directory={2} dumpfile={3} logfile={4} {5}".format(\
+                backup_user, expdp_schema + '.' + expdp_table, expdp_path, expdp_schema + '.' + expdp_table + '_expdp_impdp_bytable_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',\
+                expdp_schema + '.' + expdp_table + '_expdp_bytable_' + datetime.datetime.now().strftime('%Y%m%d') + '.log', \
+                expdp_parameter)
+        elif expdp_type.lower() == 'bytablespace':
+            text = "expdp {0} tablespaces={1} directory={2} dumpfile={3} logfile={4} {5}".format(\
+                backup_user, expdp_tablespace, expdp_path, expdp_tablespace + '_expdp_impdp_bytablespace_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',\
+                expdp_tablespace + '_expdp_bytablespace_' + datetime.datetime.now().strftime('%Y%m%d') + '.log', \
+                expdp_parameter)
+        elif expdp_type.lower() == 'byfull':
             text = "expdp {0} full=y directory={1} dumpfile={2} logfile={3} {4}".format(\
-                backup_user, backup_path, config.oracle['instance'] + '_expdp_impdp_byfull_' + \
+                backup_user, expdp_path, config.oracle['instance'] + '_expdp_impdp_byfull_' + \
                 datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',\
                 config.oracle['instance'] + '_expdp_byfull_' + \
-                datetime.datetime.now().strftime('%Y%m%d') + '.log', backup_parameter)
+                datetime.datetime.now().strftime('%Y%m%d') + '.log', expdp_parameter)
         else:
-            text = "Please asign the type to backup data.Such as byuser|bytable|bytablespace|byfull."
+            text = "Please asign the type to expdp data.Such as byschema|bytable|bytablespace|byfull."
             loglevel = 'warnLogger'
 
         logwrite.LogWrite(logmessage=text, loglevel=loglevel).write_log()
@@ -483,40 +473,33 @@ class OracleBackup(object):
 class OracleRecovery(object):
     script_path = config.script['scriptpath']
 
-    from_users = config.backup['from_users']
-    from_tables = config.backup['from_tables']
-    from_tablespaces = config.backup['from_tables']
-
-    to_users = config.backup['to_users']
-    to_tables = config.backup['to_tables']
-    to_tablespaces = config.backup['to_tablespaces']
-
-    def imp(self, restore_type=config.backup['imp']['restore_type'], \
-            restore_parameter=config.backup['imp']['restore_parameter'], \
-            restore_path=config.backup['imp']['restore_path'], \
-            restore_user=config.backup['imp']['restore_user']):
+    def imp(self, backup_user=config.backup['imp']['backup_user'], \
+            imp_type=config.backup['imp']['imp_type'], \
+            imp_parameter=config.backup['imp']['imp_parameter'], \
+            imp_path=config.backup['imp']['imp_path'], \
+            imp_table=config.backup['imp']['imp_table'], \
+            from_user=config.backup['imp']['from_user'], \
+            to_user=config.backup['imp']['to_user']):
 
         loglevel = 'infoLogger'
-
-        if restore_type.lower() == 'byuser':
-            for (i, j) in zip(self.from_users, self.to_users):
-                text = "imp {0} fromuser={1} touser={2} file={3} log={4} {5}".format(\
-                    restore_user, i, j, restore_path + '/' + i + '_exp_imp_byuser_' + \
-                    datetime.datetime.now().strftime('%Y%m%d') + '.dmp',\
-                    restore_path + '/' + i + '_imp_byuser_' + \
-                    datetime.datetime.now().strftime('%Y%m%d') + '.log', restore_parameter)
-        elif restore_type.lower() == 'bytable':
-            for (i, j) in zip(self.from_users, self.to_users):
-                for k in self.from_tables:
-                    text = "imp {0} fromuser={1} touser={2} table={3} file={4} log={5} {6}".format(\
-                        restore_user, i, j, k, restore_path + '/' + i + '.' + k + '_exp_imp_bytable_' + \
-                        datetime.datetime.now().strftime('%Y%m%d') + '.dmp',\
-                        restore_path + '/' + i + '.' + k + '_imp_bytable_' + \
-                        datetime.datetime.now().strftime('%Y%m%d') + '.log', restore_parameter)
-        elif restore_type.lower() == 'byfull':
+        text     = 'No imp sql assigned here!'
+        
+        if imp_type.lower() == 'byuser':
+            text = "imp {0} fromuser={1} touser={2} file={3} log={4} {5}".format(\
+                backup_user, from_user, to_user, imp_path + '/' + from_user + '_exp_imp_byuser_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '.dmp',\
+                imp_path + '/' + from_user + '_imp_byuser_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '.log', imp_parameter)
+        elif imp_type.lower() == 'bytable':
+            text = "imp {0} fromuser={1} touser={2} tables={3} file={4} log={5} {6}".format(\
+                backup_user, from_user, to_user, imp_table, imp_path + '/' + from_user + '.' + to_user + '_exp_imp_bytable_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '.dmp',\
+                imp_path + '/' + from_user + '.' + imp_table + '_imp_bytable_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '.log', imp_parameter)
+        elif imp_type.lower() == 'byfull':
             text = "imp {0} full=y file={1} log={2} ignore=y".format(\
-                restore_user,restore_path + '/' + config.oracle['instance'] + '_exp_imp_byfull_' + \
-                datetime.datetime.now().strftime('%Y%m%d') + '.dmp',restore_path + '/' + \
+                backup_user,imp_path + '/' + config.oracle['instance'] + '_exp_imp_byfull_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '.dmp',imp_path + '/' + \
                 config.oracle['instance'] + '_imp_byfull_' + \
                 datetime.datetime.now().strftime('%Y%m%d') + '.log')
         else:
@@ -525,49 +508,46 @@ class OracleRecovery(object):
 
         logwrite.LogWrite(logmessage=text, loglevel=loglevel).write_log()
 
-    def impdp(self, restore_type=config.backup['impdp']['restore_type'], \
-            restore_parameter=config.backup['impdp']['restore_parameter'], \
-            restore_path=config.backup['impdp']['restore_path'], \
-            restore_user=config.backup['impdp']['restore_user']):
+    def impdp(self, backup_user=config.backup['expdp']['backup_user'], \
+            impdp_type=config.backup['impdp']['impdp_type'], \
+            impdp_parameter=config.backup['impdp']['impdp_parameter'], \
+            impdp_path=config.backup['impdp']['impdp_path'], \
+            impdp_table=config.backup['impdp']['impdp_table'], \
+            from_schema=config.backup['impdp']['from_schema'], \
+            to_schema=config.backup['impdp']['to_schema'], \
+            from_tablespace=config.backup['impdp']['from_tablespace'], \
+            to_tablespace=config.backup['impdp']['to_tablespace']):
 
         loglevel = 'infoLogger'
-
-        if restore_type.lower() == 'byuser':
-            for (i, j) in zip(self.from_users, self.to_users):
-                text = "impdp {0} remap_schemma={1} directory={2} dumpfile={3} logfile={4}  {5}".format(\
-                    restore_user, i + ':' + j, restore_path, i + '_expdp_impdp_byuser_' + \
-                    datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',i + '_impdp_byuser_' + \
-                    datetime.datetime.now().strftime('%Y%m%d') + '.log', restore_parameter)
-        elif restore_type.lower() == 'bytable':
-            for (i , j) in zip(self.from_users, self.to_users):
-                for (k, m) in zip(self.from_tables, self.to_tables):
-                    text = "impdp {0} tables={1} remap_schemma={2} directory={3} dumpfile={4} logfile={5}  {6}".format(\
-                        restore_user, k, i + ':' + j, restore_path, i + '.' + k + '_expdp_impdp_bytable_' + \
-                        datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',i + '.' + k + \
-                        '_impdp_bytable_' + datetime.datetime.now().strftime('%Y%m%d') + '.log', restore_parameter)
-        elif restore_type.lower() == 'bytablespace':
-            for (i , j) in zip(self.from_users, self.to_users):
-                for (k, m) in zip(self.from_tablespaces, self.to_tablespaces):
-                    text = "impdp {0} remap_schemma={1} remap_tablespace={2} directory={3} dumpfile={4} logfile={5}  {6}".format(\
-                        restore_user, i + ':' + j, k + ':' + m, restore_path, k + '_expdp_impdp_bytablespace_' + \
-                        datetime.datetime.now().strftime('%Y%m%d') + '.dmp',k + '_impdp_bytablespace_' + \
-                        datetime.datetime.now().strftime('%Y%m%d') + '.log', restore_parameter)
-        elif restore_type.lower() == 'byfull':
+        text     = 'No impdp sql assigned here!'
+        
+        if impdp_type.lower() == 'byschema':
+            text = "impdp {0} remap_schemma={1} directory={2} dumpfile={3} logfile={4}  {5}".format(\
+                backup_user, from_schema + ':' + to_schema, impdp_path, from_schema + '_expdp_impdp_byschema_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',from_schema + '_impdp_byschema_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '.log', impdp_parameter)
+        elif impdp_type.lower() == 'bytable':
+            text = "impdp {0} tables={1} remap_schemma={2} directory={3} dumpfile={4} logfile={5}  {6}".format(\
+                backup_user, impdp_table, from_schema + ':' + to_schema, impdp_path, from_schema + '.' + impdp_table + '_expdp_impdp_bytable_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',from_schema + '.' + impdp_table + \
+                '_impdp_bytable_' + datetime.datetime.now().strftime('%Y%m%d') + '.log', impdp_parameter)
+        elif impdp_type.lower() == 'bytablespace':
+            text = "impdp {0} remap_schemma={1} remap_tablespace={2} directory={3} dumpfile={4} logfile={5}  {6}".format(\
+                backup_user, from_schema + ':' + to_schema, from_tablespace + ':' + to_tablespace, impdp_path, from_tablespace + '_expdp_impdp_bytablespace_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '.dmp',from_tablespace + '_impdp_bytablespace_' + \
+                datetime.datetime.now().strftime('%Y%m%d') + '.log', impdp_parameter)
+        elif impdp_type.lower() == 'byfull':
             text = "impdp {0} full=y directory={1} dumpfile={2} logfile={3}  {4}".format(\
-                restore_user, restore_path, config.oracle['instance'] + \
+                backup_user, impdp_path, config.oracle['instance'] + \
                 '_expdp_impdp_byfull_' + datetime.datetime.now().strftime('%Y%m%d') + '_%U.dmp',\
                 config.oracle['instance'] + '_impdp_byfull_' + \
-                datetime.datetime.now().strftime('%Y%m%d') + '.log', restore_parameter)
+                datetime.datetime.now().strftime('%Y%m%d') + '.log', impdp_parameter)
         else:
-            text = "Please asign the type to import data.Like byuser|bytable|bytablespace|byfull."
+            text = "Please asign the type to import data.Like byschema|bytable|bytablespace|byfull."
             loglevel = 'warnLogger'
 
         logwrite.LogWrite(logmessage=text, loglevel=loglevel).write_log()
 
 
 if __name__ == '__main__':
-    print(OracleBackup().expdp(backup_type='bytablespace'))
-    if Table().fieldname('A_QYMC', 'GZGS_HZ') == Table().fieldname('A_QYMC', 'GZGS_GY'):
-        print("yes")
-    else:
-        print("no")
+    print(OracleRecovery().imp(imp_type='bytable'))
