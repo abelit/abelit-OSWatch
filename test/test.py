@@ -50,11 +50,20 @@
 # if __name__ == '__main__':
 #     hello()
 
+# aa = ['abelit','chenying','panpan','raochan']
+# aa = []
+# bb = 'where nbxh in '
+# print(bb+str(tuple(aa)))
+# aa = ','.join(aa)
+# print(aa)
+# coding utf-8
 
-aa = ['abelit','chenying','panpan','raochan']
-aa = []
-bb = 'where nbxh in '
-print(bb+str(tuple(aa)))
-aa = ','.join(aa)
 
-print(aa)
+a = [('BM',), ('NR',), ('PARID',), ('TEST',), ('MC',)]
+b = "('name','job')"
+print(b.replace('\'', ''))
+a.remove(('BM',))
+print(a)
+
+
+

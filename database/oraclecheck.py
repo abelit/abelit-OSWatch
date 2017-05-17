@@ -489,7 +489,7 @@ class Checks(object):
         """Query temporary tablespaces"""
         sql = "SELECT round(((TABLESPACE_SIZE-FREE_SPACE)/TABLESPACE_SIZE)*100,2) \
               PERCENTUAL FROM dba_temp_free_space where \
-              tablespace_name='{0}'".format(name)"
+              tablespace_name='{0}'".format(name)
         self.cur.execute(sql)
         res = self.cur.fetchall()
         for i in res:

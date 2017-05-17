@@ -16,6 +16,7 @@
 import os
 from oswatch import pathget
 import configparser
+import json
 
 package = "dev"
 version = "3.14"
@@ -35,7 +36,8 @@ config_path = {
     'dbconf':project_path + separater + 'config' + separater + 'database.conf',
     'serverconf':project_path + separater + 'config' + separater + 'server.conf',
     'reportconf':project_path + separater + 'config' + separater + 'report.conf',
-    'logconf':project_path + separater + 'config' + separater + 'logging.conf'
+    'logconf':project_path + separater + 'config' + separater + 'logging.conf',
+    'bkconf':project_path + separater + 'config' + separater + 'backup.json'
 }
 
 # Get the configuration of user-defined
@@ -49,18 +51,20 @@ oracle = {
     'username':dbconf.get('oracle', 'username'),
     'password':dbconf.get('oracle', 'password'),
     'host':dbconf.get('oracle', 'host'),
-    'port':dbconf.getint('oracle', 'port'),
+    'port':dbconf.get('oracle', 'port'),
     'instance':dbconf.get('oracle', 'instance'),
+    'mode':dbconf.get('oracle', 'mode'),
+    'NLS_LANG':dbconf.get('oracle', 'nls_lang')
     
-    # Oracle env variable
-    'ORACLE_BASE':'/u01/app/oracle',
-    'ORACLE_HOME':'/u01/app/oracle/product/11.2.0/db_1',
-    'ORACLE_SID':'gzgszxk2',
-    'NLS_DATE_FORMAT':'yyyy-mm-dd HH24:MI:SS',
-    'NLS_LANG':'AMERICAN_AMERICA.ZHS16GBK',
-    
-    # Oracle backup info
-    'BACKUP_DIR':'/u01/app/oracle/backup'
+#     # Oracle env variable
+#     'ORACLE_BASE':'/u01/app/oracle',
+#     'ORACLE_HOME':'/u01/app/oracle/product/11.2.0/db_1',
+#     'ORACLE_SID':'gzgszxk2',
+#     'NLS_DATE_FORMAT':'yyyy-mm-dd HH24:MI:SS',
+#     'NLS_LANG':'AMERICAN_AMERICA.ZHS16GBK',
+#     
+#     # Oracle backup info
+#     'BACKUP_DIR':'/u01/app/oracle/backup'
 }
 
 # log is dict for configuring parameters of logging
@@ -75,51 +79,11 @@ script = {
 }
 
 # Assign the directory for storing data pump
-backup = {
-    'exp': {
-        'backup_user':'exp_user/gzgsoracle',
-        'exp_type':'byuser',
-        'exp_parameter':'',
-        'exp_path':'/u01/app/oracle/exp_backup',
-        'exp_table':'a_qyzt',
-        'exp_user':'gzgs_hz'
-    },
-    'expdp': {
-        'backup_user':'exp_user/gzgsoracle',
-        'expdp_type':'byschema',
-        'expdp_parameter':'',
-        'expdp_path':'expdp_backup',
-        'expdp_table':'a_qyzt',
-        'expdp_schema':'gzgs_hz',
-        'expdp_tablespace':'gzgs_hz'
-    },
-    'imp': {
-        'backup_user':'exp_user/gzgsoracle',
-        'imp_type':'byuser',
-        'imp_parameter':'',
-        'imp_path':'/u01/app/oracle/exp_backup',
-        'imp_table':'a_qyzt',
-        'from_user':'gzgs_hz',
-        'to_user':'gzgs_hz',
-
-    },
-    'impdp': {
-        'backup_user':'exp_user/gzgsoracle',
-        'impdp_type':'byschema',
-        'impdp_parameter':'',
-        'impdp_path':'expdp_backup',
-        'impdp_table':'a_qyzt',
-        'from_schema':'gzgs_hz',
-        'to_schema':'gzgs_hz',
-        'from_tablespace':'gzgs_hz',
-        'to_tablespace':'gzgs_hz'
-    }
-}
+with open(config_path['bkconf']) as bkjson:
+    backup = json.load(bkjson)
 
 
 if __name__ == '__main__':
-    print(log['logpath'])
-    print(oracle['username'])
-    print(oracle['password'])
-    print(oracle['host']+":"+str(oracle['port']))
+   print(backup)
+  
     

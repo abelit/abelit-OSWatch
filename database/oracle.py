@@ -74,6 +74,7 @@ class Oracle:
             logwrite.LogWrite(logmessage=msg, loglevel='errorLogger').write_log()
 
         dsn = cx_Oracle.makedsn(host=self.host, port=self.port, service_name=self.instance)
+
         try:
             if self.mode == 'sysdba' or self.username == 'sys':
                 self.connection = cx_Oracle.connect(self.username, self.password, dsn, \
@@ -117,7 +118,7 @@ class Oracle:
             self.__disconnect()
         return results
 
-    def execute(self, sql, bindvars='', many=False, commit=False):
+    def execute(self, sql, bindvars='', many=False, commit=True):
         """
         Function: execute
         Summary: Execute whatever SQL statements are passed to the method;
@@ -138,7 +139,7 @@ class Oracle:
         # else:
         #     commit = False
         try:
-            self.connect()
+            self.__connect()
             self.cursor = self.connection.cursor()
             self.cursor.execute(sql, bindvars)
         except cx_Oracle.DatabaseError as cx_msg:
@@ -153,7 +154,7 @@ class Oracle:
                 self.connection.commit()
             else:
                 pass
-            self.disconnect()
+            self.__disconnect()
 
 class User(object):
 
@@ -550,4 +551,4 @@ class OracleRecovery(object):
 
 
 if __name__ == '__main__':
-    print(OracleRecovery().imp(imp_type='bytable'))
+    print(OracleBackup().exp(exp_type='bytable'))

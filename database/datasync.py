@@ -45,7 +45,10 @@ class DataSync(object):
         tablesrc_field = oracle.Table().field(tablesrc, ownersrc)
         tabledst_pk = oracle.Table().primarykey(tabledst, ownerdst)
         tabledst_field = oracle.Table().field(tabledst, ownerdst)
-       
+        
+        tabledst_field_update = oracle.Table().field(tabledst, ownerdst)
+        tabledst_field_insert = oracle.Table().field(tabledst, ownerdst)
+        
         issync = True
         loglevel = "infoLogger"
         logmessage = ""
@@ -55,7 +58,7 @@ class DataSync(object):
         WHEN MATCHED THEN
         UPDATE SET {4} {5} 
         WHEN NOT MATCHED THEN 
-        INSERT VALUES({6}) {7}"""
+        INSERT VALUES{6} {7}"""
         # Example sql to query diffrent data between two tables
         sql_diff ="select {0} from (select * from {1} {2} minus select * from {3} {4})"
         # Example sql to delte data
@@ -70,8 +73,6 @@ class DataSync(object):
             loglevel = "errorLogger"
             logmessage = "There are diffrences between two tables ("+tablesrc+","+tabledst+\
                 ") which need to be synchorizing."
-
-        
 
         # The two tables should have the same primary key
         if len(tablesrc_pk) and len(tabledst_pk) and tablesrc_pk == tabledst_pk:
@@ -90,40 +91,38 @@ class DataSync(object):
             # Generate  for condition strings
             strings = []
             [strings.append(results[i][0]) for i in range(len(results))]
-            print(strings)
+         
+
+#             listvalue = str(tuple(strings)
+# #             if len() < '2':
+# #                 listvalue = listvalue.replace(',','')
+# #             else:
+# #                 listvalue=listvalue
+#         
+#             src_condition = ' WHERE src.' + tablesrc_pk[0][0] + ' IN ' + listvalue)
+#             dst_condition = ' WHERE dst.' + tablesrc_pk[0][0] + ' IN ' + listvalue)
+#             
             print(tuple(strings))
-            print(tablesrc_pk[0][0])
-            condition = condition + ' WHERE ' + tablesrc_pk[0][0] + ' IN ' + str(tuple(strings))
+            exit()
             
         if results and method == 'merge':                  
             # Using merge sync data
-            
-            # update_fields = ''
-            # for row in range(1, len(tablesrc_field) - 1):
-            #     update_fields = update_fields + 'dst.' + tablesrc_field[row] + '=' + \
-            #         'src.' + tablesrc_field[row] + ','
-            # update_fields = update_fields + 'dst.' + tablesrc_field[len(tablesrc_field) - 1] + \
-            #     '=' + 'src.' + tablesrc_field[len(tablesrc_field) - 1]
-            #     
-            # insert_fields = ''
-            # for row in range(len(tablesrc_field) - 1):
-            #     insert_fields = insert_fields + 'src.' + tablesrc_field[row] + ','
-            # insert_fields = insert_fields + 'src.' + tablesrc_field[len(tablesrc_field) - 1]
-            
             # Join string like values(field1,field2,...)
             update_strings = []
-            tabledst_field.remove(tabledst_pk) # update all fields but primary key field,so remove it from list
-            [update_strings.append('dst.'+i+'='+'src.'+i) for i in tabledst_field]
-            update_fields = ",".join(update_strings)
-
-            insert_strings = []
-            [insert_strings.append('src.'+i) for i in tabledst_field]
-            insert_fields = ",".join(insert_strings)
-
-            sql_merge = sql_merge.format(ownerdst + '.' + tabledst, ownersrc + '.' + tablesrc, \
-                'dst.' + tablesrc_pk[0], 'src.' + tablesrc_pk[0], update_fields, condition, \
-                insert_fields, condition)
+            # update all fields but primary key field,so remove it from list
             
+            [tabledst_field_update.remove(i) for i in tabledst_pk]
+            
+            [update_strings.append(str('dst.'+i[0]+'='+'src.'+i[0])) for i in tabledst_field_update]
+            update_fields = str(tuple(update_strings)).replace('\'','').strip('()')
+         
+            insert_strings = []
+            [insert_strings.append('src.'+i[0]) for i in tabledst_field_insert]
+            insert_fields = str(tuple(insert_strings)).replace('\'','')
+            
+            sql_merge = sql_merge.format(ownerdst + '.' + tabledst, ownersrc + '.' + tablesrc, \
+                'dst.' + tablesrc_pk[0][0], 'src.' + tablesrc_pk[0][0], update_fields, dst_condition, \
+                insert_fields, src_condition)
             try:
                 # Call modules to excute sql
                 oracle.Oracle().execute(sql_merge)
@@ -131,7 +130,7 @@ class DataSync(object):
                 logmessage="Sync data error"
                 loglevel='errorLogger'
             else:
-                logmessage = 'The diffrent data: ' + results + \
+                logmessage = 'The diffrent data: ' + str(results) + \
                     '\nThe sql to sync data: ' + sql_merge + \
                     "\nSync data successfully between " + ownersrc + '.' + tablesrc + \
                     ' and ' + ownerdst + '.' + tabledst
@@ -139,11 +138,12 @@ class DataSync(object):
         # Using minus,delete,insert sync data
         elif results and method == 'insert':
             sql_delete = sql_delete.format(\
-                ownerdst + '.' + tabledst, tabledst_pk[0], tabledst_pk[0], \
+                ownerdst + '.' + tabledst, tabledst_pk[0][0], tabledst_pk[0][0], \
                 ownersrc + '.' + tablesrc, condition, ownerdst + '.' + tabledst, condition)
             sql_insert = sql_insert.format(\
                 ownerdst + '.' + tabledst, ownersrc + '.' + \
                 tablesrc, condition, ownerdst + '.' + tabledst, condition)
+            
             try:
                 # delete data
                 oracle.Oracle().execute(sql_delete)
@@ -153,8 +153,8 @@ class DataSync(object):
                 logmessage = "Sync data error"
                 loglevel = 'errorLogger'
             else:
-                logmessage ='The diffrent data: ' + results + \
-                    '\n The sql to sync data: ' + sql_delete + sql_insert+ \
+                logmessage ='The diffrent data: ' + str(results) + \
+                    '\n The sql to sync data: ' + sql_delete + ';' + sql_insert + ';'+ \
                     "\nSync data successfully between " + ownersrc + '.' + tablesrc + \
                     ' and ' + ownerdst + '.' + tabledst
                 loglevel = 'infoLogger'
@@ -184,7 +184,7 @@ if __name__ == '__main__':
     tabledst = 'A_BM_XZQH'
     ownersrc = 'GZGS_GY'
     ownerdst = 'GZGS_HZ'
-    condition = ""
+    condition = "WHERE bm in ('520100')"
     method = 'merge'
     DataSync().sync_data(method=method, tablesrc=tablesrc, tabledst=tabledst, \
         ownersrc=ownersrc, ownerdst=ownerdst, condition=condition)
