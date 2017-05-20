@@ -59,11 +59,27 @@
 # coding utf-8
 
 
-a = [('BM',), ('NR',), ('PARID',), ('TEST',), ('MC',)]
-b = "('name','job')"
-print(b.replace('\'', ''))
-a.remove(('BM',))
-print(a)
+# a = [('BM',), ('NR',), ('PARID',), ('TEST',), ('MC',)]
+# b = "('name','job')"
+# print(b.replace('\'', ''))
+# a.remove(('BM',))
+# print(a)
 
 
+# if 2 > 1:
+#     print("Ture")
+#     
+# aa = "name"
+# 
+# 
+# print(aa)
+# 
+# cc = "[('520100', '\xe8\xb4\xb5\xe9\x98\xb3\xe5\xb8\x82', '520000', None, '\xe8\xb4\xb5\xe5\xb7\x9e\xe7\x9c\x81\xe8\xb4\xb5\xe9\x98\xb3\xe5\xb8\x82', None, None)]"
+# print(cc.decode())
+
+import logging
+
+aa = logging.error(u"陈")
+
+print(aa)
 
